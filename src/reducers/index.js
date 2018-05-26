@@ -1,11 +1,10 @@
 import { combineReducers } from 'redux'
 import auth from './reducerAuth'
-import { eventFeeds, currentEventFeed } from './reducerFeeds'
+import eventFeeds from './reducerFeeds'
 
 const rootReducer = combineReducers({
   auth,
-  eventFeeds,
-  currentEventFeed
+  eventFeeds
 })
 
 export default rootReducer

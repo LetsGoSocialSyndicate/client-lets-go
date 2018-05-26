@@ -2,7 +2,10 @@ import React, { Component } from 'react'
 import '../assets/styles/NavigationBar.css'
 
 class NavigationBar extends Component {
-  state = { isOpen: false }
+  constructor(props) {
+    super(props)
+    this.state = { isOpen: false }
+  }
   toggle = (event) => {
     event.preventDefault()
     this.setState({ isOpen: !this.state.isOpen })
@@ -28,8 +31,8 @@ class NavigationBar extends Component {
     return (
       <div>
         <div className="nav">
-          <span className="menu" onClick={this.toggle}>
-            <img src={require('../assets/images/ellipsis-h.svg')} alt="Menu"/>
+          <span className="menu">
+            { this.props.isUserLoggedIn ? <img src={require('../assets/images/ellipsis-h.svg')} alt="Menu" onClick={this.toggle} /> : null }
           </span>
           <div className="logo">
             <img src={require('../assets/images/letsgo_rgb_white.png')} alt="Let's Go Logo"/>

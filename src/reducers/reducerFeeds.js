@@ -4,12 +4,6 @@ const initialFeedsState = {
   eventFeeds: []
 }
 
-const initialCurrentFeed = {
-  isLoading: false,
-  isLoaded: false,
-  eventFeed: {}
-}
-
 function eventFeeds(state = initialFeedsState, action) {
   switch (action.type) {
   default:
@@ -17,11 +11,4 @@ function eventFeeds(state = initialFeedsState, action) {
   }
 }
 
-function currentEventFeed(state = initialCurrentFeed, action) {
-  switch (action.type) {
-  default:
-    return state
-  }
-}
-
-export { eventFeeds, currentEventFeed }
+export default eventFeeds

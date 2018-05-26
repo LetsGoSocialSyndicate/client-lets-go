@@ -1,15 +1,28 @@
-import { LOGIN, SIGNUP } from '../constants'
+import { LOGIN_START, LOGIN_SUCCESS, LOGIN_FAILED, LOGOUT,
+  SIGNUP_START, SIGNUP_SUCCESS, SIGNUP_FAILED  } from '../constants'
 
-const login = () => {
+const loginStart = () => {
   return (dispatch) => {
-    dispatch({ type: LOGIN })
+    dispatch({ type: LOGIN_START })
   }
 }
 
-const signup = () => {
+const loginSubmit = () => {
   return (dispatch) => {
-    dispatch({ type: SIGNUP })
+    dispatch({ type: LOGIN_SUCCESS })
   }
 }
 
-export { login, signup }
+const signupStart = () => {
+  return (dispatch) => {
+    dispatch({ type: SIGNUP_START })
+  }
+}
+
+const signupSubmit = () => {
+  return (dispatch) => {
+    dispatch({ type: SIGNUP_SUCCESS })
+  }
+}
+
+export { loginStart, loginSubmit, signupStart, signupSubmit }

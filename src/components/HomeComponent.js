@@ -3,18 +3,28 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import '../assets/styles/Login.css'
 
-import { login, signup } from '../actions/actionAuth'
+import { loginStart, signupStart } from '../actions/actionAuth'
 
 const HomeComponent = (props) => {
+  const onLoginClicked = (event) => {
+    event.preventDefault()
+    props.loginStart()
+  }
+
+  const onSignupClicked = (event) => {
+    event.preventDefault()
+    props.signupStart()
+  }
+
   return (
     <div className="home">
-      <button className="row btn btn-lg login-opt shadow-lg">Login</button>
-      <button className="row btn btn-lg login-opt shadow-lg">Create an Account</button>
+      <button className="row btn btn-lg login-opt shadow-lg" onClick={ onLoginClicked }>Login</button>
+      <button className="row btn btn-lg login-opt shadow-lg" onClick={ onSignupClicked }>Create an Account</button>
     </div>
   )
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({ login, signup }, dispatch)
+  return bindActionCreators({ loginStart, signupStart }, dispatch)
 }
 export default connect(null, mapDispatchToProps)(HomeComponent)
