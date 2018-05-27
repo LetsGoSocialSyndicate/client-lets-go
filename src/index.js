@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { BrowserRouter, Route } from 'react-router-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import thunk from 'redux-thunk'
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
@@ -13,7 +13,6 @@ import registerServiceWorker from './registerServiceWorker'
 import reducers from './reducers'
 
 import HomeComponent from './components/HomeComponent'
-import NavigationBar from './components/NavigationBar'
 import LoginForm from './components/LoginForm'
 import SignupForm from './components/SignupForm'
 
@@ -24,12 +23,11 @@ ReactDOM.render(
   (
     <Provider store={createStoreWithMiddleware(reducers)}>
       <BrowserRouter>
-        <div className="app">
-          <NavigationBar />
-          <Route exact={ true } path="/" component={ HomeComponent } />
+        <Switch>
           <Route path="/login" component={ LoginForm } />
           <Route path="/signup" component={ SignupForm } />
-        </div>
+          <Route path="/" component={ HomeComponent } />
+        </Switch>
       </BrowserRouter>
     </Provider>
   ), document.getElementById('root'))

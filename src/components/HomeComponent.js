@@ -1,30 +1,22 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
+import { Link } from 'react-router-dom'
 import '../assets/styles/Login.css'
-
-import { loginStart, signupStart } from '../actions/actionAuth'
+import NavigationBar from './NavigationBar'
 
 const HomeComponent = (props) => {
-  const onLoginClicked = (event) => {
-    event.preventDefault()
-    props.loginStart()
-  }
-
-  const onSignupClicked = (event) => {
-    event.preventDefault()
-    props.signupStart()
-  }
-
   return (
-    <div className="home">
-      <button className="row btn btn-lg login-opt shadow-lg" onClick={ onLoginClicked }>Login</button>
-      <button className="row btn btn-lg login-opt shadow-lg" onClick={ onSignupClicked }>Create an Account</button>
+    <div>
+      <NavigationBar />
+      <div className="home">
+        <div >
+          <Link className="btn btn-lg login-opt" to="/login">Login</Link>
+        </div>
+        <div >
+          <Link className="btn btn-lg login-opt" to="/signup">Create an Account</Link>
+        </div>
+      </div>
     </div>
   )
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({ loginStart, signupStart }, dispatch)
-}
-export default connect(null, mapDispatchToProps)(HomeComponent)
+export default HomeComponent
