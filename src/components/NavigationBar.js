@@ -4,6 +4,7 @@ import '../assets/styles/NavigationBar.css'
 class NavigationBar extends Component {
   constructor(props) {
     super(props)
+    // should we move this state to Redux??
     this.state = { isOpen: false }
   }
   toggle = (event) => {
