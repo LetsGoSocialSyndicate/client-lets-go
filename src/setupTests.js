@@ -1,3 +1,6 @@
+/*
+ * Copyright 2018, Socializing Syndicate Corp.
+ */
 import { configure } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 

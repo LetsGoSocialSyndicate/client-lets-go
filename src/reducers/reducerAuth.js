@@ -1,3 +1,6 @@
+/*
+ * Copyright 2018, Socializing Syndicate Corp.
+ */
 import { LOGIN_FAILED, LOGIN_SUCCESS, LOGOUT, SIGNUP_FAILED, SIGNUP_SUCCESS  } from '../constants'
 
 const initialState = {

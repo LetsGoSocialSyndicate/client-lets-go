@@ -1,3 +1,6 @@
+/*
+ * Copyright 2018, Socializing Syndicate Corp.
+ */
 const APP_TITLE = `Let's Go`
 
 const LOGIN_START = 'LOGIN_START'

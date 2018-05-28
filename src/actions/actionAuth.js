@@ -1,3 +1,6 @@
+/*
+ * Copyright 2018, Socializing Syndicate Corp.
+ */
 import { LOGIN_SUCCESS, LOGIN_FAILED, LOGOUT,
   SIGNUP_SUCCESS, SIGNUP_FAILED  } from '../constants'
 

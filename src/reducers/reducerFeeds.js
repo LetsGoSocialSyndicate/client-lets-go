@@ -1,3 +1,6 @@
+/*
+ * Copyright 2018, Socializing Syndicate Corp.
+ */
 import { FETCH_EVENT_FEEDS, FETCH_EVENT_FEEDS_START } from '../constants'
 
 const initialFeedsState = {

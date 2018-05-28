@@ -1,3 +1,6 @@
+/*
+ * Copyright 2018, Socializing Syndicate Corp.
+ */
 import { FETCH_EVENT_FEEDS } from '../constants'
 
 const mockFeeds = [

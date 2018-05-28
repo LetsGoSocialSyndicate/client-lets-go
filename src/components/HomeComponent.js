@@ -1,3 +1,6 @@
+/*
+ * Copyright 2018, Socializing Syndicate Corp.
+ */
 import React from 'react'
 import { Link } from 'react-router-dom'
 import '../assets/styles/Login.css'
