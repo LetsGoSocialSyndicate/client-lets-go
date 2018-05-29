@@ -13,7 +13,7 @@
 }
 
 .nav .logo {
-  background-color: #52AEC7;
+  background-color: #4ed6c6;
   height: 50px;
   width: 50px;
   margin-top: 30px;
@@ -35,8 +35,7 @@
   align-items: center;
 }
 .nav .brand img {
-  height: 18px;
-  width: 55px;
+  height: 45px;
 }
 
 .nav .menu {
@@ -46,28 +45,24 @@
   align-items: center;
 }
 .nav .menu img {
-  height: 22px;
-  width: 55px;
-  margin-top: 15px;
+  height: 45px;
+  margin-top: 5px;
+  margin-left: -25px;
 }
 
 .dropdown {
-  background-color: #52AEC7;
-  opacity: 0.6;
   width: 100px;
   height: 100%;
-  margin-top: -6px;
+  margin-top: -20px;
+  opacity: 0.8;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 
 .dropdown ul li img {
-  width: 70px;
-  height: 70px;
-  padding: 17px;
-  border: 5px solid #D4F6F5;
-  border-radius: 20px;
+  width: 100px;
+  height: 100px;
 }
 .dropdown ul {
   display: flex;
@@ -80,7 +75,7 @@
 }
 .dropdown li {
   list-style-type: none;
-  padding: 10px;
+  padding: 0;
   /* border: 1px solid red; */
   display: flex;
   justify-content: space-around;
