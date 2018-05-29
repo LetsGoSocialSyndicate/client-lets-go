@@ -36,7 +36,7 @@ class NavigationBar extends Component {
       <div>
         <div className="nav">
           <span className="menu">
-            <img src={require('../assets/images/Menu Icon - 3 Dots.png')} alt="Menu" onClick={this.toggle}/>
+            { this.props.isUserLoggedIn ? <img src={require('../assets/images/Menu Icon - 3 Dots.png')} alt="Menu" onClick={this.toggle} /> : null }
           </span>
           <div className="logo">
             <img src={require('../assets/images/lets-go-darkblue.png')} alt="Let's Go Logo"/>
