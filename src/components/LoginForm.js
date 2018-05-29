@@ -5,6 +5,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import '../assets/styles/Login.css'
+import NavigationBar from './NavigationBar'
 
 import { loginSubmit } from '../actions/actionAuth'
 
@@ -36,6 +37,7 @@ class LoginForm extends Component {
   render() {
     return (
       <div className="page">
+        <NavigationBar />
         <form className="login-form container" onSubmit={this.onSubmit}>
           <div className="row form-group">
             <label className="col-form-label">Username:</label>
@@ -52,7 +54,9 @@ class LoginForm extends Component {
               onChange={this.onPasswordChange}
               value={this.state.password} required />
           </div>
-          <input className="row btn btn-md submit" type="submit"/>
+          <div className="row form-group">
+            <input className="row btn btn-md submit" type="submit"/>
+          </div>
           <p>{this.props.error}</p>
         </form>
       </div>

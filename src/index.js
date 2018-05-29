@@ -18,7 +18,6 @@ import reducers from './reducers'
 import HomeComponent from './components/HomeComponent'
 import LoginForm from './components/LoginForm'
 import SignupForm from './components/SignupForm'
-import NavigationBar from './components/NavigationBar'
 
 const logger = createLogger()
 const createStoreWithMiddleware = applyMiddleware(thunk, logger)(createStore);
@@ -27,7 +26,6 @@ ReactDOM.render(
   (
     <Provider store={createStoreWithMiddleware(reducers)}>
       <div>
-        <NavigationBar />
         <BrowserRouter>
           <Switch>
             <Route path="/login" component={ LoginForm } />

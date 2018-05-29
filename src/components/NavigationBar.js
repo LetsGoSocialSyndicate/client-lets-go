@@ -2,6 +2,7 @@
  * Copyright 2018, Socializing Syndicate Corp.
  */
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import '../assets/styles/NavigationBar.css'
 
 class NavigationBar extends Component {
@@ -39,10 +40,14 @@ class NavigationBar extends Component {
             { this.props.isUserLoggedIn ? <img src={require('../assets/images/Menu Icon - 3 Dots.png')} alt="Menu" onClick={this.toggle} /> : null }
           </span>
           <div className="logo">
-            <img src={require('../assets/images/lets-go-darkblue.png')} alt="Let's Go Logo"/>
+            <Link to="/">
+              <img src={require('../assets/images/lets-go-darkblue.png')} alt="Let's Go Logo"/>
+            </Link>
           </div>
           <span className="brand">
-            <img src={require('../assets/images/Lets Go Word.png')} alt="Let's Go"/>
+            <Link to="/">
+              <img src={require('../assets/images/Lets Go Word.png')} alt="Let's Go"/>
+            </Link>
           </span>
         </div>
         { this.renderMenu() }
