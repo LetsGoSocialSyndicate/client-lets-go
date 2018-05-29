@@ -1,0 +1,16 @@
+/*
+ * Copyright 2018, Socializing Syndicate Corp.
+ */
+.login-opt {
+	font-size:14px;
+	font-weight: bold;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	letter-spacing: .07em;
+	border-radius: 0;
+  border: 1px solid #C4E6F5;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  width: 100%;
+}
