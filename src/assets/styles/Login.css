@@ -1,16 +1,32 @@
-/*
- * Copyright 2018, Socializing Syndicate Corp.
- */
-.login-opt {
+
+.login-form {
+	color: #2965a9;
 	font-size:14px;
 	font-weight: bold;
 	text-align: center;
 	text-decoration: none;
 	text-transform: uppercase;
 	letter-spacing: .07em;
-	border-radius: 0;
-  border: 1px solid #C4E6F5;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-  width: 100%;
+	justify-content: center;
+  margin-top: 12rem;
+}
+
+.col-form-label {
+  padding-top: 0;
+}
+
+label {
+  margin-bottom: 2px;
+}
+
+.submit {
+	color: #2965a9;
+	background: #a2f0f3;
+	font-size:14px;
+	font-weight: bold;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	letter-spacing: .07em;
+	margin-top: 2rem;
 }
