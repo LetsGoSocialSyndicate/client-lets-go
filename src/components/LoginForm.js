@@ -57,15 +57,19 @@ class LoginForm extends Component {
           <div className="row form-group">
             <input className="row btn btn-md submit" type="submit"/>
           </div>
-          <p>{this.props.error}</p>
+          <p className="error">{this.props.error}</p>
         </form>
       </div>
     )
   }
 }
 
+const mapStateToProps = (state) => {
+  return state.auth
+}
+
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({ loginSubmit }, dispatch)
 }
 
-export default connect(null, mapDispatchToProps)(LoginForm)
+export default connect(mapStateToProps, mapDispatchToProps)(LoginForm)

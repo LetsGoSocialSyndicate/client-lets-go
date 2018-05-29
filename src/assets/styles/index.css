@@ -24,3 +24,7 @@ body {
   flex-direction: column;
   justify-content: space-around;
 }
+
+.error {
+  color: tomato;
+}

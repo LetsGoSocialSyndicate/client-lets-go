@@ -5,7 +5,8 @@ import { LOGIN_FAILED, LOGIN_SUCCESS, LOGOUT, SIGNUP_FAILED, SIGNUP_SUCCESS  } f
 
 const initialState = {
   token: null,
-  isUserLoggedIn: false
+  isUserLoggedIn: false,
+  error: null
 }
 
 function authenticate(state = initialState, action) {
@@ -15,14 +16,16 @@ function authenticate(state = initialState, action) {
     return {
       ...state,
       isUserLoggedIn: true,
-      token: action.payload
+      token: action.payload,
+      error: null
     }
   case LOGIN_FAILED:
   case SIGNUP_FAILED:
     return {
       ...state,
       isUserLoggedIn: false,
-      token: null
+      token: null,
+      error: action.payload.error
     }
   default:
     return state

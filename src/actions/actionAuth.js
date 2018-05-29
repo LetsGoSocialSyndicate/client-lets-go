@@ -16,8 +16,26 @@ const loginSubmit = (username, password) => {
     }
   }
   return async (dispatch) => {
-    const response = await fetch('/login')
-    dispatch({ type: LOGIN_SUCCESS })
+    fetch(url, opts)
+      .then((result) => {
+        if (result.status === 200) {
+          return result.json()
+        }
+        return { error: result.statusText }
+      })
+      .then((result) => {
+        const { token, error } = result
+        if (error) {
+          dispatch({ type: LOGIN_FAILED, payload: {error} })
+        }
+        else {
+          const payload = { username, token }
+          dispatch({ type: LOGIN_SUCCESS, payload })
+        }
+      })
+      .catch((err) => {
+        console.log('err', err)
+      })
   }
 }
 
