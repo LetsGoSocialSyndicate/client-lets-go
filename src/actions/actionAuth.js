@@ -4,9 +4,8 @@
 import { LOGIN_SUCCESS, LOGIN_FAILED, LOGOUT,
   SIGNUP_SUCCESS, SIGNUP_FAILED  } from '../constants'
 
-const loginSubmit = (username, password) => {
+const loginSubmit = ({ username, password }) => {
   const url = `${process.env.REACT_APP_API_URL}/login`
-
   const opts = {
     method: 'POST',
     body: JSON.stringify({ username, password }),
