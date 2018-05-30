@@ -16,9 +16,10 @@ import registerServiceWorker from './registerServiceWorker'
 import reducers from './reducers'
 
 import HomeComponent from './components/HomeComponent'
-import LoginForm from './components/LoginForm'
-import SignupForm from './components/SignupForm'
+import LoginRoute from './components/LoginRoute'
+import SignupRoute from './components/SignupRoute'
 import NavigationBar from './components/NavigationBar'
+import EventFeeds from './components/EventFeeds'
 
 const logger = createLogger()
 const createStoreWithMiddleware = applyMiddleware(thunk, logger)(createStore);
@@ -31,8 +32,8 @@ ReactDOM.render(
           <div>
             <NavigationBar />
             <Switch>
-              <Route path="/login" component={ LoginForm } />
-              <Route path="/signup" component={ SignupForm } />
+              <LoginRoute path="/login" component={ EventFeeds } />
+              <SignupRoute path="/signup" component={ EventFeeds } />
               <Route path="/" component={ HomeComponent } />
             </Switch>
           </div>
