@@ -2,6 +2,7 @@
  * Copyright 2018, Socializing Syndicate Corp.
  */
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import '../assets/styles/NavigationBar.css'
 
@@ -56,7 +57,11 @@ class NavigationBar extends Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  return state.auth
+}
+
 /*
 { this.props.isUserLoggedIn ? <img src={require('../assets/images/ellipsis-h.svg')} alt="Menu" onClick={this.toggle} /> : null }
 */
-export default NavigationBar
+export default connect(mapStateToProps)(NavigationBar)

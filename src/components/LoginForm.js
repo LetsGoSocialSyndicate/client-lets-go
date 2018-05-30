@@ -5,7 +5,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import '../assets/styles/Login.css'
-import NavigationBar from './NavigationBar'
 
 import { loginSubmit } from '../actions/actionAuth'
 
@@ -37,7 +36,6 @@ class LoginForm extends Component {
   render() {
     return (
       <div className="page">
-        <NavigationBar />
         <form className="login-form container" onSubmit={this.onSubmit}>
           <div className="row form-group">
             <label className="col-form-label">Username:</label>
