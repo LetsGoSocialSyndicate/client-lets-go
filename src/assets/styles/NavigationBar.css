@@ -50,9 +50,13 @@
   margin-left: -25px;
 }
 
+.menu-div {
+  position: relative;
+}
 .dropdown {
+  position: fixed;
   width: 100px;
-  height: 100%;
+  height: auto;
   margin-top: -20px;
   opacity: 0.8;
   display: flex;
