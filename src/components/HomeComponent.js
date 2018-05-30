@@ -9,10 +9,10 @@ const HomeComponent = (props) => {
   return (
     <div>
       <div className="home">
-        <div >
+        <div className="button-group">
           <Link className="btn btn-lg login-opt" to="/login">Login</Link>
         </div>
-        <div >
+        <div className="button-group">
           <Link className="btn btn-lg login-opt" to="/signup">Create an Account</Link>
         </div>
       </div>
