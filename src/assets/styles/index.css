@@ -17,13 +17,6 @@ body {
   flex-direction: column;
 }
 
-.home {
-  height: 100%;
-  margin-top: 12rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-}
 
 .error {
   color: tomato;

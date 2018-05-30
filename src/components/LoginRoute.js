@@ -1,3 +1,6 @@
+/*
+ * Copyright 2018, Socializing Syndicate Corp.
+ */
 import React from 'react'
 import { Route } from 'react-router-dom'
 import { connect } from 'react-redux'
