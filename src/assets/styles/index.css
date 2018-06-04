@@ -11,7 +11,8 @@ body {
   color: white;
   background-image: url("../images/assets_5.28-05.png");
   background-repeat: no-repeat;
-  background-size: 110%;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 .page {
@@ -29,8 +30,21 @@ body {
   color: tomato;
 }
 
-.container-events-top, .container-events, .event-li  {
+.container-events-top {
+  background-image: url("../images/assets_5.28-06.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.container-events, .event-li  {
 background: rgba(255, 255, 255, 0);
+}
+
+.owner-image-bg {
+  height: 105px;
+  width: 105px;
+  border-radius: 50%;
 }
 
 .owner-image {
@@ -39,6 +53,9 @@ background: rgba(255, 255, 255, 0);
   border-radius: 50%;
   background-color: white;
   margin: 10px;
+  position: absolute;
+  top: 21px;
+  left: 13px
 }
 
 .row-event-owner {
@@ -46,7 +63,7 @@ background: rgba(255, 255, 255, 0);
 }
 
 .event-snapshot{
-  padding-top: 3%
+  /* padding-top: 3% */
 }
 
 .row-event-info {
@@ -56,11 +73,12 @@ background: rgba(255, 255, 255, 0);
 .requestButton {
   height: 20px;
   width: 140px;
-  margin-top: 10px
+  margin: 20px 0 20px 0;
 }
 
 .eventDivider {
   /* margin:0; padding:0; font-size:100%; line-height:1; */
-  width: 100%;
-  height: 15px
+  width: 120%;
+  height: 15px;
+  margin-left: -10%;
 }
