@@ -5,8 +5,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import Groot from '../assets/images/groot.png'
-import bottom_line from '../assets/images/assets_5.28-09.png'
-import requestButton from '../assets/images/request-to-join-icon-1.png'
+import bottom_line from '../assets/images/bottom_line.png'
+import requestButton from '../assets/images/Test.png'
 
 class EventFeeds extends Component {
   // componentDidMount(){
@@ -47,14 +47,14 @@ class EventFeeds extends Component {
                 <img className="owner-image"
                   src={Groot} alt="I am Groot!"/>
               </div>
-              <div className="event-info">
-                <br />{event.owner}<br />
+              <div className="event-snapshot">
+                {event.owner}<br />
                 {event.start_time}<br />
                 {event.location}
               </div>
             </div>
             <div className="row row-event-info">
-              <h2>{event.title}</h2><br />
+              <h3>{event.title}</h3><br />
               {event.icon_name}<br />
               <Link className="request-to-join"
                 to={`events/${event.id}`}>
