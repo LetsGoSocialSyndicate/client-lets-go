@@ -8,6 +8,7 @@ import thunk from 'redux-thunk'
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
 import { createLogger } from 'redux-logger'
+import { composeWithDevTools } from 'redux-devtools-extension'
 
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/css/bootstrap-theme.css'
@@ -17,25 +18,31 @@ import reducers from './reducers'
 
 import HomeComponent from './components/HomeComponent'
 import LoginRoute from './components/LoginRoute'
-import SignupRoute from './components/SignupRoute'
+import SignupRoute from './components/Signup/SignupRoute'
 import NavigationBar from './components/NavigationBar'
 import EventFeeds from './components/EventFeeds'
-import EventsRoute from './components/EventsRoute'
+import SignupForm from './components/Signup/SignupForm'
+import LoginForm from './components/LoginForm'
 
 const logger = createLogger()
-const createStoreWithMiddleware = applyMiddleware(thunk, logger)(createStore);
+
+const store = createStore(
+  reducers,
+  // Disable logging - it is too verbose.
+  composeWithDevTools(applyMiddleware(thunk, /*logger*/))
+)
+
 
 ReactDOM.render(
   (
-    <Provider store={createStoreWithMiddleware(reducers)}>
+    <Provider store={store}>
       <div>
         <BrowserRouter>
           <div>
             <NavigationBar />
             <Switch>
               <LoginRoute path="/login" component={ EventFeeds } />
-              <SignupRoute path="/signup" component={ EventFeeds } />
-              <EventsRoute path="/events" component={ EventFeeds } />
+              <SignupRoute />
               <Route path="/" component={ HomeComponent } />
             </Switch>
           </div>
