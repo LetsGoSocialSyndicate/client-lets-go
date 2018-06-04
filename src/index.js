@@ -20,6 +20,7 @@ import LoginRoute from './components/LoginRoute'
 import SignupRoute from './components/SignupRoute'
 import NavigationBar from './components/NavigationBar'
 import EventFeeds from './components/EventFeeds'
+import EventsRoute from './components/EventsRoute'
 
 const logger = createLogger()
 const createStoreWithMiddleware = applyMiddleware(thunk, logger)(createStore);
@@ -34,6 +35,7 @@ ReactDOM.render(
             <Switch>
               <LoginRoute path="/login" component={ EventFeeds } />
               <SignupRoute path="/signup" component={ EventFeeds } />
+              <EventsRoute path="/events" component={ EventFeeds } />
               <Route path="/" component={ HomeComponent } />
             </Switch>
           </div>
