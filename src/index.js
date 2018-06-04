@@ -32,10 +32,6 @@ const store = createStore(
   composeWithDevTools(applyMiddleware(thunk, /*logger*/))
 )
 
-//how to include composeWithDevTools to store ??
-//https://codeburst.io/redux-devtools-for-dummies-74566c597d7
-
-//how to include formReducer to store?
 
 ReactDOM.render(
   (

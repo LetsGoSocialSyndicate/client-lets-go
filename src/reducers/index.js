@@ -6,9 +6,6 @@ import auth from './reducerAuth'
 import eventFeeds from './reducerFeeds'
 import { reducer as formReducer } from 'redux-form'
 
-//https://redux-form.com/7.3.0/docs/gettingstarted.md/
-//how to include form-reducer, why there is a "form" key
-
 const rootReducer = combineReducers({
   auth,
   eventFeeds,

@@ -32,17 +32,16 @@ import {signupSubmit} from '../../actions/actionAuth'
  */
 const validateAndSetErrors = (fields) => {
   let hasErrors = false
-  //let element = PASSWORD2_FIELD + "-error"
   let element = "signup-error"
   if (fields[PASSWORD_FIELD] !== fields[PASSWORD2_FIELD]) {
     document.getElementById(element).innerHTML = "Password does not match"
     hasErrors = true
   } else {
-    // TODO: How to set to null instead empty string.
+    // TODO: Check: empty string still takes space on HTML page...
     document.getElementById(element).innerHTML = ""
   }
-  // TODO: email does not contain @ characters
-  // TODO: email is not in database
+  // TODO: Check: email does not contain @ characters
+  // TODO: Check: email is not in database
   return !hasErrors
 }
 
