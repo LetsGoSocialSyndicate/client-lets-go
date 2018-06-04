@@ -6,6 +6,7 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import Groot from '../assets/images/groot.png'
 import bottom_line from '../assets/images/assets_5.28-09.png'
+import requestButton from '../assets/images/request-to-join-icon-1.png'
 
 class EventFeeds extends Component {
   // componentDidMount(){
@@ -40,26 +41,27 @@ class EventFeeds extends Component {
     return (
       this.events.map(event => {
         return (
-          <li className="list-group-item" key={event.id}>
-            <div className="row">
-              <div className="owner-image">
-                <img src={Groot} alt="I am Groot!"/>
+          <li className="list-group-item event-li" key={event.id}>
+            <div className="row row-event-owner">
+              <div>
+                <img className="owner-image"
+                  src={Groot} alt="I am Groot!"/>
               </div>
               <div className="event-info">
-                {event.owner}<br />
+                <br />{event.owner}<br />
                 {event.start_time}<br />
                 {event.location}
               </div>
             </div>
-            <div className="row">
-              {event.title}<br />
+            <div className="row row-event-info">
+              <h2>{event.title}</h2><br />
               {event.icon_name}<br />
               <Link className="request-to-join"
                 to={`events/${event.id}`}>
-                request to join
+                <img className="requestButton" src={requestButton} />
               </Link>
             </div>
-            <img src={bottom_line} />
+            <img className="eventDivider" src={bottom_line} />
           </li>
         )
       })
@@ -70,7 +72,7 @@ class EventFeeds extends Component {
     console.log('this.events', this.events)
 
     return (
-      <div>
+      <div className="container-events-top">
         <div className="container container-events">
           <ul className="list-group">
             {this.renderEvents()}

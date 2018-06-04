@@ -23,6 +23,7 @@ import NavigationBar from './components/NavigationBar'
 import EventFeeds from './components/EventFeeds'
 import SignupForm from './components/Signup/SignupForm'
 import LoginForm from './components/LoginForm'
+import EventsRoute from './components/EventsRoute'
 
 const logger = createLogger()
 
@@ -41,6 +42,7 @@ ReactDOM.render(
           <div>
             <NavigationBar />
             <Switch>
+              <EventsRoute path="/events" component={ EventFeeds } />
               <LoginRoute path="/login" component={ EventFeeds } />
               <SignupRoute />
               <Route path="/" component={ HomeComponent } />

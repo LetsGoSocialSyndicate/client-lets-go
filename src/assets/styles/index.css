@@ -1,6 +1,7 @@
 /*
  * Copyright 2018, Socializing Syndicate Corp.
  */
+
 body {
   width: 100%;
   height: 100%;
@@ -20,4 +21,40 @@ body {
 
 .error {
   color: tomato;
+}
+
+.container-events-top, .container-events, .event-li  {
+background: rgba(255, 255, 255, 0);
+}
+
+.owner-image {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  background-color: tomato;
+  margin: 10px;
+}
+
+.row-event-owner {
+  display: flex
+}
+
+.row-event-info {
+  text-align: center;
+  border-style: dashed;
+  border-width: 2px;
+  border-color: black;
+  /* background-color: silver; */
+}
+
+.requestButton {
+  height: 200px;
+  width: 300px;
+  background-color: black;
+}
+
+.eventDivider {
+  /* margin:0; padding:0; font-size:100%; line-height:1; */
+  width: 100%;
+  height: 15px
 }
