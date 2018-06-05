@@ -11,7 +11,7 @@ import SignupError from './SignupError'
 const SignupRoute = ({ isUserLoggedIn, error, email }) => {
   const landingPage = () => isUserLoggedIn
     // TODO: create page and route "You are logged in, continue or sign out"
-    ? (<Redirect to="/login"/>)
+    ? (<Redirect to="/"/>)
     : (<SignupPage/>)
 
   return (

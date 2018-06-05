@@ -24,6 +24,7 @@ import EventFeeds from './components/EventFeeds'
 import SignupForm from './components/Signup/SignupForm'
 import LoginForm from './components/Login/LoginForm'
 import EventsRoute from './components/EventsRoute'
+import App from './App'
 
 const logger = createLogger()
 
@@ -39,15 +40,7 @@ ReactDOM.render(
     <Provider store={store}>
       <div>
         <BrowserRouter>
-          <div>
-            <NavigationBar />
-            <Switch>
-              <EventsRoute path="/events" component={ EventFeeds } />
-              <LoginRoute path="/login" component={ EventFeeds } />
-              <SignupRoute />
-              <Route path="/" component={ HomeComponent } />
-            </Switch>
-          </div>
+          <App/>
         </BrowserRouter>
       </div>
     </Provider>

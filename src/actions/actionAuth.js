@@ -20,13 +20,12 @@ const loginSubmit = (fields, history) => {
     const response = await fetch(url, opts)
     const responseJSON = await response.json()
     console.log('response:', response.status, responseJSON)
-    // if (response.status === 200) {
-    //   //what else I pass to dispatch?
-    //   dispatch({ type: LOGIN_SUCCESS, token: payload })
-    //   history.push("/")
-    // } else {
-    //   dispatch({ type: LOGIN_FAILED, error: responseJSON.message })
-    // }
+    if (response.status === 200) {
+      dispatch({ type: LOGIN_SUCCESS, token: responseJSON.token })
+      history.push("/")
+    } else {
+      dispatch({ type: LOGIN_FAILED, error: responseJSON.message })
+    }
   }
 }
 

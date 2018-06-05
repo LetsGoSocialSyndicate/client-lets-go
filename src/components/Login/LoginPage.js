@@ -20,6 +20,7 @@ const onSubmit = (action, history, fields) => {
 }
 
 const LoginPage = ({loginSubmit, history}) => {
+  console.log("LoginPage render")
   const action = (fields) => onSubmit(loginSubmit, history, fields)
   return (<div className="page">
     <LoginForm onSubmit={ action }/>

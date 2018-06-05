@@ -57,6 +57,7 @@ const GenderOptionsField =
          showMonthDropdown={true}
          showYearDropdown={true}
          dropdownMode="select"
+         maxDate={moment().subtract(18, "years")}
          onChange={date => input.onChange(moment(date).format(DATE_FORMAT))}
          selected={input.value ? moment(input.value, DATE_FORMAT) : null} />
          {touched && error && <span>{error}</span>}
