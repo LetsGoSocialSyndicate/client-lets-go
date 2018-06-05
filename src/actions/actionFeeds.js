@@ -1,7 +1,7 @@
 /*
  * Copyright 2018, Socializing Syndicate Corp.
  */
-import { FETCH_EVENT_FEEDS } from '../constants'
+import { FETCH_EVENT_FEEDS, ADD_NEW_EVENT } from '../constants'
 
 const fetchEventFeeds = () => {
   const url = `${process.env.REACT_APP_API_URL}/events`
@@ -26,7 +26,33 @@ const fetchEventFeeds = () => {
   }
 }
 
-export {fetchEventFeeds}
+const addNewEvent = ( newEvent ) => {
+  return async (dispatch) => {
+    const url = `${process.env.REACT_APP_API_URL}/events`
+    // console.log('url', url)
+    const opts = {
+      method: 'POST',
+      body: JSON.stringify(newEvent),
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+    }
+    const response = await fetch(url, opts)
+    if(response.status === 200){
+      const responseJSON = await response.json()
+      dispatch({
+        type: ADD_NEW_EVENT,
+        payload: responseJSON
+      })
+    }
+    else {
+      // error
+    }
+  }
+}
+
+export { fetchEventFeeds, addNewEvent }
 
 // export const initialize = () => {
 //   return async (dispatch) => {

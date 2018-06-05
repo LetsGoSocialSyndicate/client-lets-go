@@ -23,10 +23,41 @@ class NavigationBar extends Component {
       return (
         <div className="dropdown">
           <ul>
-            <li><a href="#"><img src={require('../assets/images/user.png')} alt="Menu"/></a></li>
-            <li><a href="#"><img src={require('../assets/images/events.png')} alt="Menu"/></a></li>
-            <li><a href="#"><img src={require('../assets/images/paper-plane.png')} alt="Menu"/></a></li>
-            <li><a href="#"><img src={require('../assets/images/plus.png')} alt="Menu"/></a></li>
+            <li>
+              <Link to='userprofile'>
+                <div>
+                  <img src={require('../assets/images/user.png')} alt="User profile"/>
+                </div>
+              </Link>
+            </li>
+            <li>
+              <Link to='notification'>
+                <div>
+                  <img src={require('../assets/images/events.png')} alt="Notification"/>
+                </div>
+              </Link>
+            </li>
+            <li>
+              <Link to='requests'>
+                <div>
+                  <img src={require('../assets/images/paper-plane.png')} alt="Request"/>
+                </div>
+              </Link>
+            </li>
+            <li>
+              <Link to='/newevent'>
+                <div>
+                  <img src={require('../assets/images/plus.png')} alt="Create a new event"/>
+                </div>
+              </Link>
+            </li>
+            <li>
+              <Link to='logout'>
+                <div className="logout">
+                  <img src={require('../assets/images/exit.png')} alt="Logout"/>
+                </div>
+              </Link>
+            </li>
           </ul>
         </div>
       )

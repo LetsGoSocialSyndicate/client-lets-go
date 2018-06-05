@@ -16,13 +16,6 @@ import './assets/styles/index.css'
 import registerServiceWorker from './registerServiceWorker'
 import reducers from './reducers'
 
-import LoginRoute from './components/Login/LoginRoute'
-import SignupRoute from './components/Signup/SignupRoute'
-import NavigationBar from './components/NavigationBar'
-import EventFeeds from './components/EventFeeds'
-import SignupForm from './components/Signup/SignupForm'
-import LoginForm from './components/Login/LoginForm'
-import EventsRoute from './components/EventsRoute'
 import App from './App'
 
 const logger = createLogger()
