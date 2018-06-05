@@ -13,12 +13,7 @@ import {fetchEventFeeds} from '../actions/actionFeeds'
 
 
 class EventFeeds extends Component {
-  constructor(props) {
-    super(props)
-    console.log('constructor', props)
-  }
   componentDidMount(){
-    console.log('componentDidMount')
     this.props.fetchEventFeeds()
   }
 
@@ -88,7 +83,7 @@ class EventFeeds extends Component {
 
   renderEvents() {
     return (
-      Object.values(this.props.events.eventFeeds)
+      Object.values(this.props.eventFeeds)
       .map(event => {
         return (
           <li className="list-group-item event-li" key={event.id}>
@@ -133,7 +128,7 @@ class EventFeeds extends Component {
 
   render() {
     console.log('render', this.props)
-    if (!this.props.events.isLoaded) {
+    if (!this.props.isLoaded) {
       return <div>Loading...</div>
     }
     return (
@@ -149,7 +144,7 @@ class EventFeeds extends Component {
 
 }
 
-const mapStateToProps =  (state) => ({ events: state.eventFeeds })
+const mapStateToProps =  (state) => ({ ...state.eventFeeds })
 
 const dispatchToProps = (dispatch) => bindActionCreators({
   fetchEventFeeds
