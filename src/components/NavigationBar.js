@@ -45,7 +45,7 @@ class NavigationBar extends Component {
               </Link>
             </li>
             <li>
-              <Link to='newevent'>
+              <Link to='/newevent'>
                 <div>
                   <img src={require('../assets/images/plus.png')} alt="Create a new event"/>
                 </div>

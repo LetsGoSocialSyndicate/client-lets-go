@@ -15,6 +15,7 @@ import LoginPage from './components/Login/LoginPage'
 import SignupPage from './components/Signup/SignupPage'
 import HomepageRoute from './components/Homepage/HomepageRoute'
 import EventFeeds from './components/EventFeeds'
+import NewEvent from './components/Event/NewEvent'
 
 class App extends Component {
   render() {
@@ -39,6 +40,7 @@ class App extends Component {
           <Route exact path="/" render={ homeLandingPage } />
           <Route exact path="/login" render={ loginLandingPage } />
           <Route exact path="/signup" render={ signupLandingPage } />
+          <Route exact path="/newevent" component={ NewEvent } />
           {/* <HomepageRoute /> */}
           {/* <LoginRoute /> */}
           {/* <SignupRoute /> */}
