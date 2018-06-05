@@ -1,7 +1,7 @@
 /*
  * Copyright 2018, Socializing Syndicate Corp.
  */
-import '../../assets/styles/Login.css'
+import '../../assets/styles/Signup.css'
 
 import React, { Component } from 'react'
 import { Field, reduxForm } from 'redux-form'
@@ -43,8 +43,7 @@ const EmailInputField = createInputFieldComponent("email")
 const PasswordInputField = createInputFieldComponent("password")
 const GenderOptionsField =
   createDropDownFieldComponent("Gender",
-   ["Male", "Female", "Depends on my mood"])
-
+   ["Male", "Female"])
 
 /**
  * Generates signup form based on redux-form.
@@ -52,47 +51,41 @@ const GenderOptionsField =
  * @param {function} handleSubmit - action to take on form submision.
  * @returns generated form.
  */
-const SignupForm = ({handleSubmit}) => {
+const SignupForm = ({ handleSubmit }) => {
   return (
-      <form className="login-form container"
-            onSubmit={handleSubmit}>
+      <form className="signup-form container"
+            onSubmit={ handleSubmit }>
         <div className="row form-group">
           <label htmlFor="firstName">First Name:</label>
-          <TextInputField name={FIRST_NAME_FIELD}
+          <TextInputField name={ FIRST_NAME_FIELD }
             className="form-control"
             placeholder="First Name"
             required />
         </div>
         <div className="row form-group">
-          <label className="col-form-label">Middle Name:</label>
-          <TextInputField name={MIDDLE_NAME_FIELD}
-            className="form-control"
-            placeholder="Middle Name"
-            required />
-        </div>
-        <div className="row form-group">
           <label className="col-form-label">Last Name:</label>
-          <TextInputField name={LAST_NAME_FIELD}
+          <TextInputField name={ LAST_NAME_FIELD }
             className="form-control"
             placeholder="Last Name"
             required />
         </div>
         <div className="row form-group">
           <label className="col-form-label">Gender:</label>
-          <GenderOptionsField name={GENDER_FIELD}
+          <GenderOptionsField name={ GENDER_FIELD }
             className="form-control"
             required />
         </div>
         <div className="row form-group">
           <label className="col-form-label">Email:</label>
-          <EmailInputField name={EMAIL_FIELD}
+          <EmailInputField name={ EMAIL_FIELD }
             className="form-control"
             placeholder="Email"
             required />
         </div>
+        {/* TODO:  delete username and refactor to email only */}
         <div className="row form-group">
           <label className="col-form-label">Username:</label>
-          <TextInputField name={USERNAME_FIELD}
+          <TextInputField name={ USERNAME_FIELD }
             className="form-control"
             placeholder="Username"
             required />
@@ -100,14 +93,14 @@ const SignupForm = ({handleSubmit}) => {
         <div className="row form-group">
           <label className="col-form-label">Password:</label>
           {/* TODO: is it ok to keep RAW password as part of redux-form state??? */}
-          <PasswordInputField name={PASSWORD_FIELD}
+          <PasswordInputField name={ PASSWORD_FIELD }
             className="form-control"
             placeholder="Password"
             required />
         </div>
         <div className="row form-group">
           <label className="col-form-label">Confirm Password:</label>
-          <PasswordInputField name={PASSWORD2_FIELD}
+          <PasswordInputField name={ PASSWORD2_FIELD }
             className="form-control"
             placeholder="Password"
             required />

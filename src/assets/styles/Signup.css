@@ -1,0 +1,35 @@
+/*
+ * Copyright 2018, Socializing Syndicate Corp.
+ */
+
+.signup-form {
+	color: #2965a9;
+	font-size:14px;
+	font-weight: bold;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	letter-spacing: .07em;
+	justify-content: center;
+  margin-top: 5rem;
+}
+
+.col-form-label {
+  padding-top: 0;
+}
+
+label {
+  margin-bottom: 2px;
+}
+
+.submit {
+	color: #2965a9;
+	background: #a2f0f3;
+	font-size:14px;
+	font-weight: bold;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	letter-spacing: .07em;
+	margin-top: 2rem;
+}

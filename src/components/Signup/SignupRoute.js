@@ -2,17 +2,25 @@
  * Copyright 2018, Socializing Syndicate Corp.
  */
 import React from 'react'
-import { Route, Redirect, withRouter } from 'react-router-dom'
+import { Route, Redirect, Switch, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import SignupPage from './SignupPage'
+import CheckEmail from './CheckEmail'
+import SignupError from './SignupError'
 
-const SignupRoute = ({ isUserLoggedIn }) => {
+const SignupRoute = ({ isUserLoggedIn, error, email }) => {
   const landingPage = () => isUserLoggedIn
     // TODO: create page and route "You are logged in, continue or sign out"
     ? (<Redirect to="/login"/>)
     : (<SignupPage/>)
 
-  return (<Route exact path="/signup" render={landingPage}/>)
+  return (
+    <Switch>
+      <Route exact path="/signup" render={landingPage}/>
+      <Route exact path="/signup/success" render={() => <CheckEmail email={email}/>}/>
+      <Route exact path="/signup/failure" render={() => <SignupError error={error}/>}/>
+    </Switch>
+  )
 }
 
 const mapStateToProps = (state) => state.auth

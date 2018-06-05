@@ -16,6 +16,7 @@ import SignupForm, {
   PASSWORD_FIELD,
   PASSWORD2_FIELD
 } from './SignupForm'
+
 import {signupSubmit} from '../../actions/actionAuth'
 
 /**
@@ -53,22 +54,20 @@ const validateAndSetErrors = (fields) => {
  * @param {function} action - action to take on valid form submission
  * @param {object} fields - signup form fields
  */
-const onSubmit = (action, fields) => {
+const onSubmit = (action, history, fields) => {
   console.log("SignupPage ON SUBMIT:", fields)
   if (validateAndSetErrors(fields)) {
-    action()
-    // TODO: probably redirect somewhere out of signup page.
-    // Even better - pass history into action and let action handle it.
+    action(fields, history)
   }
 }
 
-const SignupPage = ({signupSubmit}) => {
+const SignupPage = ({signupSubmit, history}) => {
   // Need to pass to onSubmit():
-  //   signupSubmit coming from current context
+  //   signupSubmit and history coming from current context
   //   fields coming from actual "form submit" invocation context
-  const action = (fields) => onSubmit(signupSubmit, fields)
+  const action = (fields) => onSubmit(signupSubmit, history, fields)
   return (<div className="page">
-    <SignupForm onSubmit={action}/>
+    <SignupForm onSubmit={ action }/>
     <p className="error" id="signup-error"></p>
   </div>)
 }

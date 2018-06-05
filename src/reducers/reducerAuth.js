@@ -6,18 +6,24 @@ import { LOGIN_FAILED, LOGIN_SUCCESS, LOGOUT, SIGNUP_FAILED, SIGNUP_SUCCESS  } f
 const initialState = {
   token: null,
   isUserLoggedIn: false,
-  error: null
+  error: null,
+  email: null
 }
 
 function authenticate(state = initialState, action) {
   switch (action.type) {
   case LOGIN_SUCCESS:
-  case SIGNUP_SUCCESS:
     return {
       ...state,
       isUserLoggedIn: true,
-      token: action.payload,
+      token: action.token,
       error: null
+    }
+  case SIGNUP_SUCCESS:
+    return {
+      ...state,
+      error: null,
+      email: action.email
     }
   case LOGIN_FAILED:
   case SIGNUP_FAILED:
@@ -25,7 +31,7 @@ function authenticate(state = initialState, action) {
       ...state,
       isUserLoggedIn: false,
       token: null,
-      error: action.payload.error
+      error: action.error
     }
   default:
     return state
