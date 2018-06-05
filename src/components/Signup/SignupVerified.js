@@ -5,9 +5,9 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import '../../assets/styles/Signup.css'
 
-//TODO: get user by username (in future by email), and
+//TODO: get user by email, and
 // say "Hello user.firstName!" ....
-const SignupVerified = ({token, username}) => {
+const SignupVerified = ({token, email}) => {
   return (
     <div>
       <h1>
