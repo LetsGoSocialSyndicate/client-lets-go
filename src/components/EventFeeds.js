@@ -17,79 +17,15 @@ class EventFeeds extends Component {
     this.props.fetchEventFeeds()
   }
 
-  // events = [
-  //   {
-  //     id: 1,
-  //     title: 'Who wants to road bike through Flagstaff?',
-  //     location: 'Boulder, CO',
-  //     icon_name: 'tree',
-  //     start_time: 'Today at 11:55am',
-  //     duration_min: 120,
-  //     description: "We're getting together to bash some bad guys and play video games in the park",
-  //     owner: "Bastian"
-  //   },
-  //   {
-  //     id: 2,
-  //     title: "Volunteering at the farmer's market, who's in?",
-  //     location: 'Boulder, CO',
-  //     icon_name: 'bicycle',
-  //     start_time: 'Tomorrow at 5:00pm',
-  //     duration_min: 60,
-  //     description: "We'll be pedalling around town looking for networking opportunities",
-  //     owner: "Eric"
-  //   },
-  //   {
-  //     id: 3,
-  //     title: 'Hanging with Groot',
-  //     location: 'Boulder, CO',
-  //     icon_name: 'tree',
-  //     start_time: 'Today at 11:55am',
-  //     duration_min: 120,
-  //     description: "We're getting together to bash some bad guys and play video games in the park",
-  //     owner: "Groot"
-  //   },
-  //   {
-  //     id: 4,
-  //     title: 'Bike Riding with Eric',
-  //     location: 'Boulder, CO',
-  //     icon_name: 'bicycle',
-  //     start_time: 'Tomorrow at 5:00pm',
-  //     duration_min: 60,
-  //     description: "We'll be pedalling around town looking for networking opportunities",
-  //     owner: "Eric"
-  //   },
-  //   {
-  //     id: 5,
-  //     title: 'Hanging with Groot',
-  //     location: 'Boulder, CO',
-  //     icon_name: 'tree',
-  //     start_time: 'Today at 11:55am',
-  //     duration_min: 120,
-  //     description: "We're getting together to bash some bad guys and play video games in the park",
-  //     owner: "Groot"
-  //   },
-  //   {
-  //     id: 6,
-  //     title: 'Bike Riding with Eric',
-  //     location: 'Boulder, CO',
-  //     icon_name: 'bicycle',
-  //     start_time: 'Tomorrow at 5:00pm',
-  //     duration_min: 60,
-  //     description: "We'll be pedalling around town looking for networking opportunities",
-  //     owner: "Eric"
-  //   },
-  // ]
-
-
   renderEvents() {
-console.log('this is the .props', this.props)
     return (
       Object.values(this.props.eventFeeds)
       .map(event => {
-        let eventDate = { date: new Date(event.event_start_time).toDateString().substr(4,7), time: (event.event_start_time).substr(11,5)
+        let eventDate = {
+          date: new Date(event.event_start_time).toDateString().substr(4,7),
+          time: (event.event_start_time).substr(11,5)
         }
 
-        console.log('eventDate', eventDate)
         return (
           <li className="list-group-item event-li" key={event.event_id}>
             <div className="row row-event-owner">
@@ -132,7 +68,6 @@ console.log('this is the .props', this.props)
   }
 
   render() {
-    console.log('render', this.props)
     if (!this.props.isLoaded) {
       return <div>Loading...</div>
     }
@@ -146,7 +81,7 @@ console.log('this is the .props', this.props)
       </div>
     )
   }
-
+  
 }
 
 const mapStateToProps =  (state) => ({ ...state.eventFeeds })
