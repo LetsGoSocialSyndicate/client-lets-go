@@ -7,6 +7,8 @@ import { Link } from 'react-router-dom'
 import bottom_line from '../assets/images/bottom_line.png'
 import requestButton from '../assets/images/Test.png'
 import circle from '../assets/images/bgCircleGradient.png'
+import '../assets/styles/Events.css'
+
 
 class EventFeeds extends Component {
   // componentDidMount(){
