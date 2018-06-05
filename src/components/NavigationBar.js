@@ -25,7 +25,6 @@ class NavigationBar extends Component {
           <ul>
             <li><a href="#"><img src={require('../assets/images/user.png')} alt="Menu"/></a></li>
             <li><a href="#"><img src={require('../assets/images/events.png')} alt="Menu"/></a></li>
-            <li><a href="#"><img src={require('../assets/images/home.png')} alt="Menu"/></a></li>
             <li><a href="#"><img src={require('../assets/images/paper-plane.png')} alt="Menu"/></a></li>
             <li><a href="#"><img src={require('../assets/images/plus.png')} alt="Menu"/></a></li>
           </ul>
