@@ -98,10 +98,11 @@ class EventFeeds extends Component {
               </div>
               <div className="event-snapshot">
                 <h4>{event.owner}<br />
-                <small>
-                {event.start_time}<br />
-                {event.location}
-              </small></h4>
+                  <small>
+                    {event.start_time}<br />
+                    {event.location}
+                  </small>
+                </h4>
               </div>
             </div>
             <div className="row row-event-info">

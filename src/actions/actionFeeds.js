@@ -7,8 +7,6 @@ const fetchEventFeeds = () => {
   const url = `${process.env.REACT_APP_API_URL}/events`
   console.log('fetchEventFeeds')
   return async (dispatch) => {
-    let newMessages = []
-
     console.log('we are inside the fetch events feed')
 
     const response = await fetch(url)
