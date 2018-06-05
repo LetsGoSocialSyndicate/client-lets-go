@@ -82,9 +82,11 @@ class EventFeeds extends Component {
 
 
   renderEvents() {
+
     return (
       Object.values(this.props.eventFeeds)
       .map(event => {
+        console.log('event', event)
         return (
           <li className="list-group-item event-li" key={event.id}>
             <div className="row row-event-owner">
