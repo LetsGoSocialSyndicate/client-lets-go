@@ -6,9 +6,9 @@ import { LOGIN_SUCCESS, LOGIN_FAILED, LOGOUT,
 
 const loginSubmit = (fields, history) => {
   return async (dispatch) => {
-    console.log("I am in action loginSubmit and fields are: ",  fields)
+    // console.log("I am in action loginSubmit and fields are: ",  fields)
     const url = `${process.env.REACT_APP_API_URL}/login`
-    console.log('url', url)
+    // console.log('url', url)
     const opts = {
       method: 'POST',
       body: JSON.stringify(fields),
@@ -19,7 +19,7 @@ const loginSubmit = (fields, history) => {
     }
     const response = await fetch(url, opts)
     const responseJSON = await response.json()
-    console.log('response:', response.status, responseJSON)
+    // console.log('response:', response.status, responseJSON)
     if (response.status === 200) {
       dispatch({ type: LOGIN_SUCCESS, token: responseJSON.token })
       history.push("/")
@@ -55,9 +55,9 @@ const loginSubmit = (fields, history) => {
 
 const signupSubmit = (fields, history) => {
   return async (dispatch) => {
-    console.log("I am in action signupSubmit and fields are: ",  fields)
+    // console.log("I am in action signupSubmit and fields are: ",  fields)
     const url = `${process.env.REACT_APP_API_URL}/signup`
-    console.log('url', url)
+    // console.log('url', url)
     const opts = {
       method: 'POST',
       body: JSON.stringify(fields),
@@ -68,7 +68,7 @@ const signupSubmit = (fields, history) => {
     }
     const response = await fetch(url, opts)
     const responseJSON = await response.json()
-    console.log('response:', response.status, responseJSON)
+    // console.log('response:', response.status, responseJSON)
     if (response.status === 200) {
       dispatch({ type: SIGNUP_SUCCESS, email: fields.email })
       history.push("/signup/success")

@@ -3,6 +3,7 @@
  */
 import { FETCH_EVENT_FEEDS, FETCH_EVENT_FEEDS_START } from '../constants'
 
+
 const initialFeedsState = {
   isLoading: false,
   isLoaded: false,
@@ -10,6 +11,7 @@ const initialFeedsState = {
 }
 
 function eventFeeds(state = initialFeedsState, action) {
+  console.log('reducer eventFeeds', state, action)
   switch (action.type) {
   case FETCH_EVENT_FEEDS_START:
     return {

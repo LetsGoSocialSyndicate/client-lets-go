@@ -19,7 +19,9 @@ import EventFeeds from './components/EventFeeds'
 class App extends Component {
   render() {
     const isUserLoggedIn = this.props.isUserLoggedIn
+
     console.log("App isUserLoggedIn",isUserLoggedIn)
+
     let homeLandingPage = () => (<Redirect to="/login"/>)
     let loginLandingPage = () => (<LoginPage/>)
     let signupLandingPage = () => (<SignupPage/>)

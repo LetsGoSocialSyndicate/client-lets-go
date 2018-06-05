@@ -2,86 +2,94 @@
  * Copyright 2018, Socializing Syndicate Corp.
  */
 import React, { Component } from 'react'
+import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import bottom_line from '../assets/images/bottom_line.png'
 import requestButton from '../assets/images/Test.png'
 import circle from '../assets/images/bgCircleGradient.png'
 import '../assets/styles/Events.css'
+import {fetchEventFeeds} from '../actions/actionFeeds'
 
 
 class EventFeeds extends Component {
-  // componentDidMount(){
-  //   this.props.fetchEvents()
-  // }
+  constructor(props) {
+    super(props)
+    console.log('constructor', props)
+  }
+  componentDidMount(){
+    console.log('componentDidMount')
+    this.props.fetchEventFeeds()
+  }
 
-  events = [
-    {
-      id: 1,
-      title: 'Who wants to road bike through Flagstaff?',
-      location: 'Boulder, CO',
-      icon_name: 'tree',
-      start_time: 'Today at 11:55am',
-      duration_min: 120,
-      description: "We're getting together to bash some bad guys and play video games in the park",
-      owner: "Bastian"
-    },
-    {
-      id: 2,
-      title: "Volunteering at the farmer's market, who's in?",
-      location: 'Boulder, CO',
-      icon_name: 'bicycle',
-      start_time: 'Tomorrow at 5:00pm',
-      duration_min: 60,
-      description: "We'll be pedalling around town looking for networking opportunities",
-      owner: "Eric"
-    },
-    {
-      id: 3,
-      title: 'Hanging with Groot',
-      location: 'Boulder, CO',
-      icon_name: 'tree',
-      start_time: 'Today at 11:55am',
-      duration_min: 120,
-      description: "We're getting together to bash some bad guys and play video games in the park",
-      owner: "Groot"
-    },
-    {
-      id: 4,
-      title: 'Bike Riding with Eric',
-      location: 'Boulder, CO',
-      icon_name: 'bicycle',
-      start_time: 'Tomorrow at 5:00pm',
-      duration_min: 60,
-      description: "We'll be pedalling around town looking for networking opportunities",
-      owner: "Eric"
-    },
-    {
-      id: 5,
-      title: 'Hanging with Groot',
-      location: 'Boulder, CO',
-      icon_name: 'tree',
-      start_time: 'Today at 11:55am',
-      duration_min: 120,
-      description: "We're getting together to bash some bad guys and play video games in the park",
-      owner: "Groot"
-    },
-    {
-      id: 6,
-      title: 'Bike Riding with Eric',
-      location: 'Boulder, CO',
-      icon_name: 'bicycle',
-      start_time: 'Tomorrow at 5:00pm',
-      duration_min: 60,
-      description: "We'll be pedalling around town looking for networking opportunities",
-      owner: "Eric"
-    },
-  ]
+  // events = [
+  //   {
+  //     id: 1,
+  //     title: 'Who wants to road bike through Flagstaff?',
+  //     location: 'Boulder, CO',
+  //     icon_name: 'tree',
+  //     start_time: 'Today at 11:55am',
+  //     duration_min: 120,
+  //     description: "We're getting together to bash some bad guys and play video games in the park",
+  //     owner: "Bastian"
+  //   },
+  //   {
+  //     id: 2,
+  //     title: "Volunteering at the farmer's market, who's in?",
+  //     location: 'Boulder, CO',
+  //     icon_name: 'bicycle',
+  //     start_time: 'Tomorrow at 5:00pm',
+  //     duration_min: 60,
+  //     description: "We'll be pedalling around town looking for networking opportunities",
+  //     owner: "Eric"
+  //   },
+  //   {
+  //     id: 3,
+  //     title: 'Hanging with Groot',
+  //     location: 'Boulder, CO',
+  //     icon_name: 'tree',
+  //     start_time: 'Today at 11:55am',
+  //     duration_min: 120,
+  //     description: "We're getting together to bash some bad guys and play video games in the park",
+  //     owner: "Groot"
+  //   },
+  //   {
+  //     id: 4,
+  //     title: 'Bike Riding with Eric',
+  //     location: 'Boulder, CO',
+  //     icon_name: 'bicycle',
+  //     start_time: 'Tomorrow at 5:00pm',
+  //     duration_min: 60,
+  //     description: "We'll be pedalling around town looking for networking opportunities",
+  //     owner: "Eric"
+  //   },
+  //   {
+  //     id: 5,
+  //     title: 'Hanging with Groot',
+  //     location: 'Boulder, CO',
+  //     icon_name: 'tree',
+  //     start_time: 'Today at 11:55am',
+  //     duration_min: 120,
+  //     description: "We're getting together to bash some bad guys and play video games in the park",
+  //     owner: "Groot"
+  //   },
+  //   {
+  //     id: 6,
+  //     title: 'Bike Riding with Eric',
+  //     location: 'Boulder, CO',
+  //     icon_name: 'bicycle',
+  //     start_time: 'Tomorrow at 5:00pm',
+  //     duration_min: 60,
+  //     description: "We'll be pedalling around town looking for networking opportunities",
+  //     owner: "Eric"
+  //   },
+  // ]
 
 
   renderEvents() {
     return (
-      this.events.map(event => {
+      Object.values(this.props.events.eventFeeds)
+      .map(event => {
         return (
           <li className="list-group-item event-li" key={event.id}>
             <div className="row row-event-owner">
@@ -124,8 +132,10 @@ class EventFeeds extends Component {
   }
 
   render() {
-    console.log('this.events', this.events)
-
+    console.log('render', this.props)
+    if (!this.props.events.isLoaded) {
+      return <div>Loading...</div>
+    }
     return (
       <div className="container-events-top">
         <div className="container container-events">
@@ -139,6 +149,10 @@ class EventFeeds extends Component {
 
 }
 
-const mapStateToProps =  (state) => state.eventFeeds
+const mapStateToProps =  (state) => ({ events: state.eventFeeds })
 
-export default connect(mapStateToProps)(EventFeeds)
+const dispatchToProps = (dispatch) => bindActionCreators({
+  fetchEventFeeds
+}, dispatch)
+
+export default connect(mapStateToProps, dispatchToProps)(EventFeeds)
