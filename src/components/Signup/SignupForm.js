@@ -1,10 +1,13 @@
 /*
  * Copyright 2018, Socializing Syndicate Corp.
  */
-import '../../assets/styles/Signup.css'
 
 import React, { Component } from 'react'
 import { Field, reduxForm } from 'redux-form'
+import DatePicker from 'react-datepicker'
+import moment from 'moment'
+import 'react-datepicker/dist/react-datepicker.css'
+import { DATE_FORMAT } from '../../constants'
 
 export const FIRST_NAME_FIELD = "firstName"
 export const MIDDLE_NAME_FIELD = "middleName"
@@ -14,6 +17,7 @@ export const EMAIL_FIELD = "email"
 export const USERNAME_FIELD = "username"
 export const PASSWORD_FIELD = "password"
 export const PASSWORD2_FIELD = "confirmPassword"
+export const BIRTHDAY_FIELD = "birthday"
 
 const createInputFieldComponent = (type) => {
   return class extends Component {
@@ -45,6 +49,21 @@ const GenderOptionsField =
   createDropDownFieldComponent("Gender",
    ["Male", "Female"])
 
+ const renderDatePicker = (
+   {input, placeholder, defaultValue, meta: {touched, error} }) => {
+   return (<div>
+         <DatePicker {...input} dateForm={DATE_FORMAT}
+         className="form-control"
+         peekNextMonth={true}
+         showMonthDropdown={true}
+         showYearDropdown={true}
+         dropdownMode="select"
+         onChange={date => input.onChange(moment(date).format(DATE_FORMAT))}
+         selected={input.value ? moment(input.value, DATE_FORMAT) : null} />
+         {touched && error && <span>{error}</span>}
+       </div>
+ )}
+
 /**
  * Generates signup form based on redux-form.
  *
@@ -69,6 +88,11 @@ const SignupForm = ({ handleSubmit }) => {
             placeholder="Last Name"
             required />
         </div>
+         <div className="row form-group">
+          <label className="col-form-label">Birthday:</label>
+          <Field name={ BIRTHDAY_FIELD }
+                 component={renderDatePicker} />
+        </div>
         <div className="row form-group">
           <label className="col-form-label">Gender:</label>
           <GenderOptionsField name={ GENDER_FIELD }
@@ -92,7 +116,6 @@ const SignupForm = ({ handleSubmit }) => {
         </div>
         <div className="row form-group">
           <label className="col-form-label">Password:</label>
-          {/* TODO: is it ok to keep RAW password as part of redux-form state??? */}
           <PasswordInputField name={ PASSWORD_FIELD }
             className="form-control"
             placeholder="Password"

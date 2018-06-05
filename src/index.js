@@ -17,12 +17,12 @@ import registerServiceWorker from './registerServiceWorker'
 import reducers from './reducers'
 
 import HomeComponent from './components/HomeComponent'
-import LoginRoute from './components/LoginRoute'
+import LoginRoute from './components/Login/LoginRoute'
 import SignupRoute from './components/Signup/SignupRoute'
 import NavigationBar from './components/NavigationBar'
 import EventFeeds from './components/EventFeeds'
 import SignupForm from './components/Signup/SignupForm'
-import LoginForm from './components/LoginForm'
+import LoginForm from './components/Login/LoginForm'
 import EventsRoute from './components/EventsRoute'
 
 const logger = createLogger()

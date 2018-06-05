@@ -4,9 +4,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import '../assets/styles/Login.css'
+import '../../assets/styles/Login.css'
 
-import { loginSubmit } from '../actions/actionAuth'
+import { loginSubmit } from '../../actions/actionAuth'
 
 class LoginForm extends Component {
   constructor(props) {
@@ -57,6 +57,7 @@ class LoginForm extends Component {
           </div>
           <p className="error">{this.props.error}</p>
         </form>
+        
       </div>
     )
   }

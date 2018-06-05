@@ -4,7 +4,7 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
 import { connect } from 'react-redux'
-import LoginForm from './LoginForm'
+import LoginForm from './Login/LoginForm'
 
 const EventsRoute = ({ component: Component, token }) => {
   // if (token) {

@@ -5,11 +5,12 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {withRouter} from "react-router-dom"
 import {bindActionCreators} from 'redux'
+import '../../assets/styles/Signup.css'
 
 import SignupForm, {
   FIRST_NAME_FIELD,
-  MIDDLE_NAME_FIELD,
   LAST_NAME_FIELD,
+  BIRTHDAY_FIELD,
   GENDER_FIELD,
   EMAIL_FIELD,
   USERNAME_FIELD,

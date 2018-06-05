@@ -1,7 +1,7 @@
 /*
  * Copyright 2018, Socializing Syndicate Corp.
  */
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/css/bootstrap-theme.css'
 import 'font-awesome/css/font-awesome.css'
@@ -18,4 +18,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default App

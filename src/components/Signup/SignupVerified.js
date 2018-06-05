@@ -3,7 +3,7 @@
  */
 import React from 'react'
 import { Link } from 'react-router-dom'
-import '../../assets/styles/Home.css'
+import '../../assets/styles/Signup.css'
 
 //TODO: get user by username (in future by email), and
 // say "Hello user.firstName!" ....
