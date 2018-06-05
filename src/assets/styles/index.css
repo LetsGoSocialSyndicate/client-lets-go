@@ -65,22 +65,22 @@ background: rgba(255, 255, 255, 0);
 }
 
 .event-image-bg {
-  height: 130px;
-  width: 130px;
+  height: 160px;
+  width: 160px;
   border-radius: 50%;
   position: relative;
   left: 50px;
 }
 
 .event-image {
-  height: 75px;
-  width: 75px;
+  height: 93px;
+  width: 93px;
   border-radius: 50%;
   background-color: white;
   margin: 10px;
   position: relative;
   top: -2px;
-  left: -62px
+  left: -86px
 }
 
 .row-event-owner {
