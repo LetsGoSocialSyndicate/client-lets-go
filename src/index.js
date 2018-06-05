@@ -16,7 +16,6 @@ import './assets/styles/index.css'
 import registerServiceWorker from './registerServiceWorker'
 import reducers from './reducers'
 
-import HomeComponent from './components/HomeComponent'
 import LoginRoute from './components/Login/LoginRoute'
 import SignupRoute from './components/Signup/SignupRoute'
 import NavigationBar from './components/NavigationBar'
