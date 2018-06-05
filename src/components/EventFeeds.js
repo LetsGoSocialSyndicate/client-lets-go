@@ -4,7 +4,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import Groot from '../assets/images/groot.png'
 import bottom_line from '../assets/images/bottom_line.png'
 import requestButton from '../assets/images/Test.png'
 import circle from '../assets/images/bgCircleGradient.png'
@@ -17,17 +16,17 @@ class EventFeeds extends Component {
   events = [
     {
       id: 1,
-      title: 'Hanging with Groot',
+      title: 'Who wants to road bike through Flagstaff?',
       location: 'Boulder, CO',
       icon_name: 'tree',
       start_time: 'Today at 11:55am',
       duration_min: 120,
       description: "We're getting together to bash some bad guys and play video games in the park",
-      owner: "Groot"
+      owner: "Bastian"
     },
     {
       id: 2,
-      title: 'Bike Riding with Eric',
+      title: "Volunteering at the farmer's market, who's in?",
       location: 'Boulder, CO',
       icon_name: 'bicycle',
       start_time: 'Tomorrow at 5:00pm',
@@ -88,21 +87,30 @@ class EventFeeds extends Component {
                 <img className="owner-image-bg"
                   src={circle} />
                 <img className="owner-image"
-                  src={Groot} alt="I am Groot!"/>
+                  src={require('../assets/images/bastian.jpg')} alt="waaa bee boo dada!"/>
               </div>
               <div className="event-snapshot">
-                <h4>{event.owner}</h4>
+                <h4>{event.owner}<br />
+                <small>
                 {event.start_time}<br />
                 {event.location}
+              </small></h4>
               </div>
             </div>
             <div className="row row-event-info">
-              <h3>{event.title}</h3><br />
-              {event.icon_name}<br />
-              <i class="far fa-tree"></i>
+              <h3>{event.title}</h3>
+              <div className="event-image-holder">
+                <img className="event-image-bg"
+                  src={circle} />
+                <img className="event-image"
+                  src={require('../assets/images/groot.png')} alt="I am Groot!"/><br />
+              </div>
               <Link className="request-to-join"
                 to={`events/${event.id}`}>
-                <img className="requestButton" src={requestButton} />
+                <div className="oval">
+                  <img className="requestButton" src={requestButton} />
+                </div>
+
               </Link>
             </div>
             <img className="eventDivider" src={bottom_line} />

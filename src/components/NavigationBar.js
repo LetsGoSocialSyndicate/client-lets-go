@@ -5,6 +5,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import '../assets/styles/NavigationBar.css'
+import ellipsis from '../assets/images/ellipsis-h.svg'
 
 class NavigationBar extends Component {
   constructor(props) {
@@ -38,11 +39,11 @@ class NavigationBar extends Component {
       <div className="menu-div">
         <div className="nav">
           <span className="menu">
-            { this.props.isUserLoggedIn ? <img src={require('../assets/images/Menu Icon - 3 Dots.png')} alt="Menu" onClick={this.toggle} /> : null }
+            { this.props.isUserLoggedIn ? <img src={require('../assets/images/ellipsis.png')} alt="Menu" onClick={this.toggle} /> : null }
           </span>
           <div className="logo">
             <Link to="/">
-              <img src={require('../assets/images/lets-go-darkblue.png')} alt="Let's Go Logo"/>
+              <img src={require('../assets/images/letsgo_rgb_white.png')} alt="Let's Go Logo"/>
             </Link>
           </div>
           <span className="brand">

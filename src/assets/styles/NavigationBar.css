@@ -13,7 +13,7 @@
 }
 
 .nav .logo {
-  background-color: #4ed6c6;
+  background-color: #49CBF7;
   height: 50px;
   width: 50px;
   margin-top: 30px;
@@ -80,7 +80,6 @@
 .dropdown li {
   list-style-type: none;
   padding: 0;
-  /* border: 1px solid red; */
   display: flex;
   justify-content: space-around;
   align-items: space-around;
