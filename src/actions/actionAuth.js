@@ -7,7 +7,7 @@ import { LOGIN_SUCCESS, LOGIN_FAILED, LOGOUT,
 const loginSubmit = (fields, history) => {
   return async (dispatch) => {
     console.log("I am in action loginSubmit and fields are: ",  fields)
-    const url = `${process.env.REACT_APP_API_URL}`
+    const url = `${process.env.REACT_APP_API_URL}/login`
     console.log('url', url)
     const opts = {
       method: 'POST',

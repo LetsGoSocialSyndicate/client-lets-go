@@ -13,7 +13,6 @@ import SignupForm, {
   BIRTHDAY_FIELD,
   GENDER_FIELD,
   EMAIL_FIELD,
-  USERNAME_FIELD,
   PASSWORD_FIELD,
   PASSWORD2_FIELD
 } from './SignupForm'

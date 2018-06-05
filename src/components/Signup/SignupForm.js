@@ -14,7 +14,6 @@ export const MIDDLE_NAME_FIELD = "middleName"
 export const LAST_NAME_FIELD = "lastName"
 export const GENDER_FIELD = "gender"
 export const EMAIL_FIELD = "email"
-export const USERNAME_FIELD = "username"
 export const PASSWORD_FIELD = "password"
 export const PASSWORD2_FIELD = "confirmPassword"
 export const BIRTHDAY_FIELD = "birthday"
@@ -104,14 +103,6 @@ const SignupForm = ({ handleSubmit }) => {
           <EmailInputField name={ EMAIL_FIELD }
             className="form-control"
             placeholder="Email"
-            required />
-        </div>
-        {/* TODO:  delete username and refactor to email only */}
-        <div className="row form-group">
-          <label className="col-form-label">Username:</label>
-          <TextInputField name={ USERNAME_FIELD }
-            className="form-control"
-            placeholder="Username"
             required />
         </div>
         <div className="row form-group">
