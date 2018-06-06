@@ -39,13 +39,20 @@ function authenticate(state = initialState, action) {
     }
   case LOGIN_FAILED:
   case SIGNUP_FAILED:
-    console.log("LOGIN_FAILED, SIGNUP_FAILED authenticate reducer:", action, state)
+  console.log("authenticate reducer:", action, state)
     return {
       ...state,
       isUserLoggedIn: false,
       token: null,
       error: action.error,
       verified: true
+    }
+  case LOGOUT:
+  console.log("authenticate reducer:", action, state)
+    return {
+      ...state,
+      isUserLoggedIn: false,
+      token: null
     }
   default:
     return state

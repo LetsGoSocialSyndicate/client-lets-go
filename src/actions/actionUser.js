@@ -3,18 +3,16 @@
  */
 import { FETCH_USER } from '../constants'
 
-const fetchUser = (id) => {
-  const url = `${process.env.REACT_APP_API_URL}/users/${id}`
-  console.log('inside the action fetchUser')
+const fetchUser = (email) => {
   return async (dispatch) => {
-    console.log('we are inside async the fetchUser')
+    const url = `${process.env.REACT_APP_API_URL}/users/${email}`
     const response = await fetch(url)
+    const responseJSON = await response.json()
+    console.log('fetchUser response:', response.status, responseJSON)
     if(response.status === 200){
-      const responseJSON = await response.json()
-      console.log('responseJSON', responseJSON)
       dispatch({
         type: FETCH_USER,
-        payload: responseJSON
+        user: responseJSON
       })
     }
     else {

@@ -4,16 +4,16 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 // import {withRouter} from "react-router-dom"
-// import {bindActionCreators} from 'redux'
+import {bindActionCreators} from 'redux'
 import '../../assets/styles/UserProfile.css'
-import whiteCircle from '../assets/images/whiteCircle.png'
-import {fetchUser} from '../actions/actionUser'
+import whiteCircle from '../../assets/images/whiteCircle.png'
+import {fetchUser} from '../../actions/actionUser'
 
 //Need to pass id or user's email here from navbar button onClick.
 //User is logged in, we just need his id or email
 class UserProfile extends Component {
   componentDidMount(){
-    this.props.fetchUser(id)
+    this.props.fetchUser(this.props.auth.email)
   }
   render() {
     console.log("UserProfile render and props are:", this.props)
@@ -23,7 +23,7 @@ class UserProfile extends Component {
     return (
       <div className="page">
         Hello World! It is User Profile page.
-        <li className="list-group-item user-li" key={user.id}>
+        {/* <li className="list-group-item user-li" key={user.id}>
           <div className="row row-user">
             <div>
               <div className="white-circle">
@@ -43,10 +43,17 @@ class UserProfile extends Component {
             <h4>Add photos...</h4>
           </div>
           <br />
-        </li>
+        </li> */}
       </div>)
 }
-const mapStateToProps =  (state) => ({ ...state.userInfo })
+}
+
+const mapStateToProps = (state) => {
+  return {
+    user: state.user,
+    auth: state.auth
+  }
+}
 
 const dispatchToProps = (dispatch) => bindActionCreators({
   fetchUser

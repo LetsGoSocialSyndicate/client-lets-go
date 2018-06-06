@@ -74,8 +74,16 @@ const verifyAccount = (token) => {
   }
 }
 
+const logout = (history) => {
+  return async (dispatch) => {
+    dispatch({type: LOGOUT})
+    history.push('/')
+  }
+}
+
 export {
   loginSubmit,
   signupSubmit,
-  verifyAccount
+  verifyAccount,
+  logout
 }

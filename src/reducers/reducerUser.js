@@ -7,18 +7,18 @@ const initialUserState = {
   user: {}
 }
 
-function getUserProfileInfo(state = initialFeedsState, action) {
-  console.log('reducer getUserProfileInfo', state, action)
+function getUser(state = initialUserState, action) {
   switch (action.type) {
     case FETCH_USER:
+      console.log('reducer getUser', state, action)
       console.log(action)
       return {
         ...state,
-        user: action.payload
+        user: action.user
     }
   default:
     return state
   }
 }
 
-export default getUserProfileInfo
+export default getUser

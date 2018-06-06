@@ -2,10 +2,13 @@
  * Copyright 2018, Socializing Syndicate Corp.
  */
 import React, { Component } from 'react'
+import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { Link, withRouter} from 'react-router-dom'
 import '../assets/styles/NavigationBar.css'
 import ellipsis from '../assets/images/ellipsis-h.svg'
+import {logout} from '../actions/actionAuth'
+
 
 class NavigationBar extends Component {
   constructor(props) {
@@ -13,18 +16,23 @@ class NavigationBar extends Component {
     // should we move this state to Redux??
     this.state = { isOpen: false }
   }
+
   toggle = (event) => {
     event.preventDefault()
     this.setState({ isOpen: !this.state.isOpen })
   }
 
   renderMenu() {
+    const handleLogout = () => {
+      this.setState({ isOpen: false })
+      this.props.logout(this.props.history)
+    }
     if (this.state.isOpen) {
       return (
         <div className="dropdown">
           <ul>
             <li>
-              <Link to='userprofile'>
+              <Link to='profile'>
                 <div>
                   <img src={require('../assets/images/user.png')} alt="User profile"/>
                 </div>
@@ -52,11 +60,11 @@ class NavigationBar extends Component {
               </Link>
             </li>
             <li>
-              <Link to='logout'>
                 <div className="logout">
-                  <img src={require('../assets/images/exit.png')} alt="Logout"/>
+                  <button onClick = {handleLogout}>
+                    <img src={require('../assets/images/exit.png')} alt="Logout"/>
+                  </button>
                 </div>
-              </Link>
             </li>
           </ul>
         </div>
@@ -91,8 +99,8 @@ class NavigationBar extends Component {
 const mapStateToProps = (state) => {
   return state.auth
 }
+const dispatchToProps = (dispatch) => bindActionCreators({
+  logout
+}, dispatch)
 
-/*
-{ this.props.isUserLoggedIn ? <img src={require('../assets/images/ellipsis-h.svg')} alt="Menu" onClick={this.toggle} /> : null }
-*/
-export default connect(mapStateToProps)(NavigationBar)
+export default withRouter(connect(mapStateToProps, dispatchToProps)(NavigationBar))
