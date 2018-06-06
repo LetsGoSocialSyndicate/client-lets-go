@@ -23,7 +23,7 @@ const CategoryOptionsField =
 
 const NewEventForm = ({ handleSubmit }) => {
   return (
-    <form className="signup-form container"
+    <form className="signup-form container-new-event"
           onSubmit={ handleSubmit }>
       <div className="row form-group">
         <label className="col-form-label">Title:</label>
@@ -44,6 +44,12 @@ const NewEventForm = ({ handleSubmit }) => {
         <CategoryOptionsField name={ CATEGORY_FIELD }
           className="form-control"
           required />
+      </div>
+      <div className="row form-group">
+        <label className="col-form-label">Description:</label>
+        <TextInputField name={ DESCRIPTION_FIELD }
+          className="form-control"
+          placeholder="Description"/>
       </div>
       <div className="row form-group">
         <label className="col-form-label">Start:</label>
