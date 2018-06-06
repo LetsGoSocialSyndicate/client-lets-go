@@ -7,7 +7,7 @@ import '../../assets/styles/Signup.css'
 
 const SignupError = ({error}) => {
   return !error ? null : (
-    <div>
+    <div className="after-signup-message">
       <p>
         {error}
       </p>
