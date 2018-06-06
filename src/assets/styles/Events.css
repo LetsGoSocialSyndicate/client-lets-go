@@ -82,13 +82,10 @@
  .requestButton {
    height: 20px;
    width: 140px;
-   margin-top: -15px;
-   margin-bottom: 20px;
    margin-right: 10px;
  }
 
  .eventDivider {
-   /* margin:0; padding:0; font-size:100%; line-height:1; */
    width: 120%;
    height: 15px;
    margin-left: -10%;
@@ -97,4 +94,10 @@
 .container-new-event {
   margin-left: 40px;
   margin-right: 40px;
+}
+
+.oval {
+  margin-top: -15px;
+  margin-bottom: 10px;
+  height: 30px;
 }
