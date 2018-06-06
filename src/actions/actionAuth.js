@@ -1,5 +1,6 @@
 /* Copyright 2018, Socializing Syndicate Corp. */
 import {
+  FETCH_USER,
   LOGIN_SUCCESS,
   LOGIN_FAILED,
   LOGOUT,
@@ -11,7 +12,7 @@ import {
 const loginSubmit = (fields, history) => {
   return async (dispatch) => {
     // console.log("I am in action loginSubmit and fields are: ",  fields)
-    const url = `${process.env.REACT_APP_API_URL}/login`
+    let url = `${process.env.REACT_APP_API_URL}/login`
     // console.log('url', url)
     const opts = {
       method: 'POST',
@@ -21,14 +22,24 @@ const loginSubmit = (fields, history) => {
         'Accept': 'application/json'
       }
     }
-    const response = await fetch(url, opts)
-    const responseJSON = await response.json()
-    // console.log('response:', response.status, responseJSON)
+    let response = await fetch(url, opts)
     if (response.status === 200) {
+      let responseJSON = await response.json()
+      // console.log('response:', response.status, responseJSON)
       dispatch({type: LOGIN_SUCCESS, token: responseJSON.token, email: responseJSON.email})
       history.push("/")
-    } else {
-      dispatch({type: LOGIN_FAILED, error: responseJSON.message})
+      url = `${process.env.REACT_APP_API_URL}/users/${fields.email}`
+      response = await fetch(url)
+      if (response.status === 200) {
+        responseJSON = await response.json()
+        dispatch({ type: FETCH_USER, user: responseJSON })
+      }
+      else {
+        dispatch({type: LOGIN_FAILED, error: response.message})
+      }
+    }
+    else {
+      dispatch({type: LOGIN_FAILED, error: response.message})
     }
   }
 }
