@@ -24,3 +24,7 @@ body {
 .error {
   color: tomato;
 }
+
+li.datepicker__time-list-item {
+  margin-left: -60px;
+}

@@ -8,6 +8,7 @@ import DatePicker from 'react-datepicker'
 import moment from 'moment'
 import 'react-datepicker/dist/react-datepicker.css'
 import { DATE_FORMAT } from '../../constants'
+import { createInputFieldComponent, createDropDownFieldComponent } from '../../utilities/guiUtils'
 
 export const FIRST_NAME_FIELD = "firstName"
 export const MIDDLE_NAME_FIELD = "middleName"
@@ -17,29 +18,6 @@ export const EMAIL_FIELD = "email"
 export const PASSWORD_FIELD = "password"
 export const PASSWORD2_FIELD = "confirmPassword"
 export const BIRTHDAY_FIELD = "birthday"
-
-const createInputFieldComponent = (type) => {
-  return class extends Component {
-    render() {
-      return (<Field component="input" type={type} {...this.props}/>)
-    }
-  }
-}
-
-const createDropDownFieldComponent = (dropDownName, options) => {
-  return class extends Component {
-    render() {
-      return (
-        <Field component="select" {...this.props}>
-          <option value="">Select a {dropDownName}...</option>
-          {options.map(opt => (
-            <option value={opt} key={opt}>{opt}</option>
-          ))}
-        </Field>
-      )
-    }
-  }
-}
 
 const TextInputField = createInputFieldComponent("text")
 const EmailInputField = createInputFieldComponent("email")
