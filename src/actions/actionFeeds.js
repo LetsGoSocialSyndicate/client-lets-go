@@ -6,7 +6,7 @@ import { getRequestOptions } from './actionUtils'
 
 const fetchEventFeeds = (token) => {
   const url = `${process.env.REACT_APP_API_URL}/events`
-  console.log('fetchEventFeeds')
+  //console.log('fetchEventFeeds')
   return async (dispatch) => {
     console.log('we are inside the fetch events feed')
     const opts = getRequestOptions('GET', token)

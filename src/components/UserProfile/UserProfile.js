@@ -4,12 +4,66 @@ import {connect} from 'react-redux'
 // import {withRouter} from "react-router-dom"
 import {bindActionCreators} from 'redux'
 import '../../assets/styles/UserProfile.css'
-import {fetchUser} from '../../actions/actionUser'
+import {fetchUser, updateProfile} from '../../actions/actionUser'
+
+const handleSave = (newInfo, routerHistory, editAction) => {
+  const about = document.querySelector('#aboutToEdit').value || ''
+  const editedInfo = {
+    about: about
+  }
+  editAction(editedInfo)
+  routerHistory.push('/profile')
+}
+
+const buttonEditDiv = (user, history) => {
+  return(
+    <div className="buttonEdit">
+      <button id="edit" type="button" className="btn"
+              onClick={() => { history.push(`/edit/${user.id}`) }
+      }>Edit
+      </button>
+    </div>
+  )
+}
+
+const buttonsSaveDiv = (user, history, editProfile) => {
+  return(
+    <div className="buttons">
+      <button id="save" type="button" className="btn"
+        onClick={() => { handleSave(user, history, editProfile)}}>
+        Save
+      </button>
+      <button id="cancel" type="button" className="btn"
+        onClick={() => { history.push('/profile') }}>
+        Cancel
+      </button>
+    </div>
+  )
+}
+
+const constructButtons = (isReadOnly) => {
+  let buttons
+  if (isReadOnly) {
+    buttons = buttonEditDiv(this.state.user, this.props.history)
+  } else {
+    buttons = buttonsSaveDiv(this.state.user, this.props.history, this.props.editMessage)
+  }
+}
+
+const constructAboutInput = (value, isReadOnly) => {
+  if (isReadOnly) {
+    return (<p className="overflow-visible">{ value }</p>)
+  } else {
+    return (<input id="aboutToEdit" type="text" defaultValue={ value }></input>)
+  }
+}
+
 
 class UserProfile extends Component {
   componentDidMount() {
     this.props.fetchUser(this.props.auth.email)
   }
+
   render() {
     console.log("UserProfile render and props are:", this.props.user.user)
     if (!this.props.user) {
@@ -24,13 +78,16 @@ class UserProfile extends Component {
           <div className="user-name">
             <h3>{this.props.user.user.first_name} {this.props.user.user.last_name}</h3>
           </div>
-          <div className="row row-user-about">
-            <h3>{this.props.user.user.about}</h3>
+          <div className="user-about">
+            <h3>
+              {constructAboutInput(this.props.user.user.about, this.props.isReadOnly)}
+            </h3>
           </div>
           <div>
             <h4>Add photos...</h4>
           </div>
         </div>
+        {constructButtons(this.props.isReadOnly)}
       </div>
     )
   }
@@ -41,6 +98,7 @@ const mapStateToProps = (state) => {
 }
 
 const dispatchToProps = (dispatch) => bindActionCreators({
-  fetchUser
+  fetchUser,
+  updateProfile
 }, dispatch)
 export default connect(mapStateToProps, dispatchToProps)(UserProfile)

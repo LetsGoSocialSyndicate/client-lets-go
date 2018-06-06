@@ -11,9 +11,7 @@ import {
 
 const loginSubmit = (fields, history) => {
   return async (dispatch) => {
-    // console.log("I am in action loginSubmit and fields are: ",  fields)
-    let url = `${process.env.REACT_APP_API_URL}/login`
-    // console.log('url', url)
+    const url = `${process.env.REACT_APP_API_URL}/login`
     const opts = {
       method: 'POST',
       body: JSON.stringify(fields),

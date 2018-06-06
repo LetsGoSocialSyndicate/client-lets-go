@@ -1,24 +1,57 @@
 /*
  * Copyright 2018, Socializing Syndicate Corp.
  */
-import { FETCH_USER } from '../constants'
+import {
+  FETCH_USER,
+  EDIT_USER_START,
+  EDIT_USER_SUCCESS,
+  EDIT_USER_FAILED,
+  EDIT_USER_CANCEL
+} from '../constants'
 
 const initialUserState = {
-  user: {}
+  user: {},
+  isReadOnly: true
 }
 
-function getUser(state = initialUserState, action) {
+function reducerUser(state = initialUserState, action) {
   switch (action.type) {
-    case FETCH_USER:
-      console.log('reducer getUser', state, action)
-      console.log(action)
+    case FETCH_USER: //type, user
+      console.log('reducer User', state, action)
       return {
         ...state,
-        user: action.user
+        user: action.user,
+        isReadOnly: true,
+        error: null
     }
-  default:
-    return state
+    case EDIT_USER_START: //type
+      return {
+        ...state,
+        isReadOnly: false,
+        error: null
+    }
+    case EDIT_USER_SUCCESS: //type, user
+      return {
+        ...state,
+        user: action.user,
+        isReadOnly: true,
+        error: null
+    }
+    case EDIT_USER_FAILED: //type, error
+      return {
+        ...state,
+        isReadOnly: true,
+        error: action.error
+    }
+    case EDIT_USER_CANCEL: //type
+      return {
+        ...state,
+        isReadOnly: true,
+        error: null
+    }
+    default:
+      return state
   }
 }
 
-export default getUser
+export default reducerUser
