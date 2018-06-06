@@ -19,6 +19,7 @@ class EventFeeds extends Component {
   }
 
   renderEvents() {
+    console.log('this.props.user', this.props.user)
     return (
       Object.values(this.props.eventFeeds)
       .map(event => {
@@ -55,7 +56,7 @@ class EventFeeds extends Component {
               {/* <Link className="request-to-join"
                 to={`events/request/${event.event_id}`}> */}
                 <div className="oval"
-                  onClick={handleRequest.bind(null, event.event_id, )}>
+                  onClick={this.props.handleRequest.bind(null, event.event_id, this.props.user.id)}>
                   <img className="requestButton"
                     src={requestButton} />
                 </div>
@@ -86,10 +87,10 @@ class EventFeeds extends Component {
 
 }
 
-const mapStateToProps =  (state) => ({ ...state.eventFeeds })
+const mapStateToProps =  (state) => ({ ...state.eventFeeds, ...state.user })
 
 const dispatchToProps = (dispatch) => bindActionCreators({
-  fetchEventFeeds
+  fetchEventFeeds, handleRequest
 }, dispatch)
 
 export default connect(mapStateToProps, dispatchToProps)(EventFeeds)
