@@ -49,7 +49,6 @@ class App extends Component {
           <Route path="/confirmation/:token" component={ SignupVerified } />
           {/* <LoginRoute /> */}
           {/* <SignupRoute /> */}
-
         </Switch>
       </div>
     );

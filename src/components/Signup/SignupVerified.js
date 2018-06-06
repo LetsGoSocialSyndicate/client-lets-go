@@ -60,7 +60,7 @@ class SignupVerified extends Component {
         <p>
           You will be redirected to profile page in {timeout} seconds...
         </p>
-        <Link to='/'>
+        <Link to='/profile'>
           <button className="row btn btn-md submit">Go to Profile now</button>
         </Link>
       </div>)
