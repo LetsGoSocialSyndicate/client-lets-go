@@ -37,7 +37,8 @@ const GenderOptionsField =
          dropdownMode="select"
          maxDate={moment().subtract(18, "years")}
          onChange={date => input.onChange(moment(date).format(DATE_FORMAT))}
-         selected={input.value ? moment(input.value, DATE_FORMAT) : null} />
+         selected={input.value ? moment(input.value, DATE_FORMAT) : null}
+         required />
          {touched && error && <span>{error}</span>}
        </div>
  )}
@@ -69,7 +70,7 @@ const SignupForm = ({ handleSubmit }) => {
          <div className="row form-group">
           <label className="col-form-label">Birthday:</label>
           <Field name={ BIRTHDAY_FIELD }
-                 component={renderDatePicker} />
+            component={renderDatePicker} />
         </div>
         <div className="row form-group">
           <label className="col-form-label">Gender:</label>
