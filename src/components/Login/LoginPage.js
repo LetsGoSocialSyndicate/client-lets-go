@@ -7,10 +7,7 @@ import {withRouter} from "react-router-dom"
 import {bindActionCreators} from 'redux'
 import '../../assets/styles/Login.css'
 
-import LoginForm, {
-  EMAIL_FIELD,
-  PASSWORD_FIELD
-} from './LoginForm'
+import LoginForm from './LoginForm'
 
 import {loginSubmit} from '../../actions/actionAuth'
 

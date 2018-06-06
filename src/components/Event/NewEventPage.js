@@ -5,14 +5,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from "react-router-dom"
 import { bindActionCreators } from 'redux'
-import NewEventForm, { TITLE_FIELD,
-  LOCATION_FIELD,
-  CATEGORY_FIELD,
-  DESCRIPTION_FIELD,
-  START_TIME_FIELD,
-  END_TIME_FIELD,
-  ICON_URL_FIELD
-} from './NewEventForm'
+import NewEventForm from './NewEventForm'
 import '../../assets/styles/Events.css'
 import { addNewEvent } from '../../actions/actionFeeds'
 

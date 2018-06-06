@@ -1,9 +1,6 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form'
-import DatePicker from 'react-datepicker'
-import moment from 'moment'
 import 'react-datepicker/dist/react-datepicker.css'
-import { DATE_TIME_FORMAT } from '../../constants'
 import { createInputFieldComponent, createDropDownFieldComponent,
   renderDateTimePicker
 } from '../../utilities/guiUtils'

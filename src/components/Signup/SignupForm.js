@@ -2,7 +2,7 @@
  * Copyright 2018, Socializing Syndicate Corp.
  */
 
-import React, { Component } from 'react'
+import React from 'react'
 import { Field, reduxForm } from 'redux-form'
 import DatePicker from 'react-datepicker'
 import moment from 'moment'
