@@ -2,7 +2,7 @@
  * Copyright 2018, Socializing Syndicate Corp.
  */
 import { FETCH_EVENT_FEEDS, FETCH_EVENT_FEEDS_START,
-  ADD_NEW_EVENT
+  ADD_NEW_EVENT, FETCH_MY_EVENTS
 } from '../constants'
 
 
@@ -23,6 +23,7 @@ function eventFeeds(state = initialFeedsState, action) {
     }
 
   case FETCH_EVENT_FEEDS:
+  case FETCH_MY_EVENTS:
     console.log('reducer eventFeeds', state, action)
     const mappedKey = action.payload.reduce((acc, feed) => {
       acc[feed.event_id] = { ...feed }
