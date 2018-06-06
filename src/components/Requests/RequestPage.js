@@ -7,8 +7,8 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import bottom_line from '../../assets/images/bottom_line.png'
 import circle from '../../assets/images/bgCircleGradient.png'
-import acceptedButton from '../../assets/images/Test.png'
-import messageButton from '../../assets/images/Test.png'
+import acceptedButton from '../../assets/images/accepted.png'
+import messageButton from '../../assets/images/message.png'
 import '../../assets/styles/Events.css'
 import '../../assets/styles/Requests.css'
 import { fetchMyEventFeeds } from '../../actions/actionFeeds'
@@ -53,14 +53,14 @@ class RequestPage extends Component {
                   alt={event.event_title} /><br />
               </div>
               <div className="buttons-overlap">
-                <Link className="request-to-join"
-                  to={`events/${event.event_id}`}>
-                  <div className="oval screenButton">accepted
+                <Link className="request-to-join" to={`events/${event.event_id}`}>
+                  <div className="oval screenButton">
+                    <img className="screenButton" src={acceptedButton} />
                   </div>
                 </Link>
-                <Link className="request-to-join"
-                  to={`events/${event.event_id}`}>
-                  <div className="oval screenButton">message
+                <Link className="request-to-join" to={`events/${event.event_id}`}>
+                  <div className="oval screenButton">
+                    <img className="screenButton" src={messageButton} />
                   </div>
                 </Link>
               </div>

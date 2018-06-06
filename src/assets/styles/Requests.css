@@ -44,20 +44,16 @@
 
 .buttons-overlap {
   margin-top: -45px;
-  margin-left: 150px;
+  margin-left: 200px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
 }
 
 .screenButton {
-  margin: 2px;
+  margin: -1px 0;
   height: 25px;
-  width: 170px;
-  border-radius: 12px;
-  background-color: #CDCDCD;
-  font-weight: bold;
-  text-align: center;
+  width: 140px;
 }
 
 .event-pending {
