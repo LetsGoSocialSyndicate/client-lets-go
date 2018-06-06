@@ -1,7 +1,9 @@
 /*
  * Copyright 2018, Socializing Syndicate Corp.
  */
-import { FETCH_EVENT_FEEDS, FETCH_EVENT_FEEDS_START } from '../constants'
+import { FETCH_EVENT_FEEDS, FETCH_EVENT_FEEDS_START,
+  ADD_NEW_EVENT
+} from '../constants'
 
 
 const initialFeedsState = {
@@ -30,6 +32,14 @@ function eventFeeds(state = initialFeedsState, action) {
       isLoading: false,
       isLoaded: true,
       eventFeeds: mappedKey
+    }
+
+  case ADD_NEW_EVENT:
+    const newData = { ...state.eventFeeds }
+    newData[action.payload.id] = action.payload
+    return {
+      ...state,
+      eventFeeds: { ...newData }
     }
   default:
     return state
