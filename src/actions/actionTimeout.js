@@ -16,8 +16,7 @@ const countDownFinish = (history) => {
   return (dispatch) => {
     dispatch({ type: COUNT_DOWN_FINISH })
     if (history) {
-      // TODO: to profile page
-      history.push('/')
+      history.push('/profile')
     }
   }
 }
