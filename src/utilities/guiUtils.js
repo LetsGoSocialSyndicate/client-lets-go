@@ -35,20 +35,27 @@ const createDropDownFieldComponent = (dropDownName, options) => {
 
 const renderDateTimePicker = (props) => {
   const { input, placeholder, defaultValue, meta: {touched, error} } = props
-  return (<div>
-        <DatePicker {...input} dateForm={DATE_TIME_FORMAT}
-          className="form-control"
-          showTimeSelect={true}
-          peekNextMonth={true}
-          showMonthDropdown={true}
-          showYearDropdown={true}
-          timeIntervals={15}
-          minDate={ moment() }
-          maxDate={ moment().add(3, "days") }
-          onChange={date => input.onChange(moment(date).format(DATE_TIME_FORMAT))}
-          selected={input.value ? moment(input.value, DATE_TIME_FORMAT) : null} />
-        {touched && error && <span>{error}</span>}
-      </div>
+  return (
+    <div>
+      <style>
+        {`.react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list {
+          padding-left: 0;
+          padding-right: 0;
+        }`}
+      </style>
+      <DatePicker {...input} dateForm={DATE_TIME_FORMAT}
+        className="form-control"
+        showTimeSelect={true}
+        peekNextMonth={true}
+        showMonthDropdown={true}
+        showYearDropdown={true}
+        timeIntervals={15}
+        minDate={ moment() }
+        maxDate={ moment().add(3, "days") }
+        onChange={date => input.onChange(moment(date).format(DATE_TIME_FORMAT))}
+        selected={input.value ? moment(input.value, DATE_TIME_FORMAT) : null} />
+      {touched && error && <span>{error}</span>}
+    </div>
 )}
 
 export { createInputFieldComponent, createDropDownFieldComponent, renderDateTimePicker }
