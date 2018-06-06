@@ -17,6 +17,7 @@ import NewEventPage from './components/Event/NewEventPage'
 import CheckEmail from './components/Signup/CheckEmail'
 import SignupError from './components/Signup/SignupError'
 import UserProfile from './components/UserProfile/UserProfile'
+import RequestPage from './components/Requests/RequestPage'
 
 class App extends Component {
   render() {
@@ -33,6 +34,7 @@ class App extends Component {
     let signupSuccessLandingPage = () => (<CheckEmail email={email}/>)
     let signupFailureLandingPage = () => (<SignupError error={error}/>)
     let newEventLandingPage = () => (<Redirect to="/login"/>)
+    let requestsLandingPage = () => (<Redirect to="/login"/>)
 
     if (isUserLoggedIn) {
       homeLandingPage = () => (<EventFeeds/>)
@@ -40,6 +42,7 @@ class App extends Component {
       loginLandingPage = () => (<Redirect to="/"/>)
       signupLandingPage = () => (<Redirect to="/"/>)
       newEventLandingPage = () => (<NewEventPage error={error}/>)
+      requestsLandingPage = () => (<RequestPage error={error}/>)
     }
 
     return (
@@ -53,9 +56,8 @@ class App extends Component {
           <Route exact path="/signup/success" render={ signupSuccessLandingPage } />
           <Route exact path="/signup/failure" render={ signupFailureLandingPage } />
           <Route exact path="/newevent" render={ newEventLandingPage } />
+          <Route exact path="/requests" component={ RequestPage } />
           <Route path="/confirmation/:token" component={ SignupVerified } />
-          {/* <LoginRoute /> */}
-          {/* <SignupRoute /> */}
         </Switch>
       </div>
     );

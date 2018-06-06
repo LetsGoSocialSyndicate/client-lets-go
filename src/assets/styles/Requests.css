@@ -1,0 +1,14 @@
+/*
+ * Copyright 2018, Socializing Syndicate Corp.
+ */
+.container-requests-top {
+  background-image: url("../images/assets_5.28-06.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.container-requests, .event-li  {
+  background: rgba(255, 255, 255, 0);
+  border: none
+}
