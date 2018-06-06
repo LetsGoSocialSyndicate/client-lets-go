@@ -1,5 +1,8 @@
 /* Copyright 2018, Socializing Syndicate Corp. */
-import {REQUEST_SUBMIT} from '../constants'
+import {
+  REQUEST_SUBMIT,
+  HOST_VIEW_REQUEST
+} from '../constants'
 
 const handleRequest = (e_id, u_id) => {
   console.log('i am here in the handleRequest')
@@ -23,6 +26,15 @@ const handleRequest = (e_id, u_id) => {
       const responseJSON = await response.json()
 
       dispatch({type: REQUEST_SUBMIT, userId: u_id})
+    }
+  }
+}
+
+const hostViewRequest = (history) => {
+  return (dispatch) => {
+    dispatch({ type: HOST_VIEW_REQUEST })
+    if (history) {
+      history.push('/:email/hosted')
     }
   }
 }
