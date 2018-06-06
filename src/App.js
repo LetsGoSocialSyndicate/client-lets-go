@@ -32,12 +32,14 @@ class App extends Component {
     let signupLandingPage = () => (<SignupPage/>)
     let signupSuccessLandingPage = () => (<CheckEmail email={email}/>)
     let signupFailureLandingPage = () => (<SignupError error={error}/>)
+    let newEventLandingPage = () => (<Redirect to="/login"/>)
 
     if (isUserLoggedIn) {
       homeLandingPage = () => (<EventFeeds/>)
       userProfileLandingPage = () => (<UserProfile/>)
       loginLandingPage = () => (<Redirect to="/"/>)
       signupLandingPage = () => (<Redirect to="/"/>)
+      newEventLandingPage = () => (<NewEventPage error={error}/>)
     }
 
     return (
@@ -50,7 +52,7 @@ class App extends Component {
           <Route exact path="/signup" render={ signupLandingPage } />
           <Route exact path="/signup/success" render={ signupSuccessLandingPage } />
           <Route exact path="/signup/failure" render={ signupFailureLandingPage } />
-          <Route exact path="/newevent" component={ NewEventPage } />
+          <Route exact path="/newevent" render={ newEventLandingPage } />
           <Route path="/confirmation/:token" component={ SignupVerified } />
           {/* <LoginRoute /> */}
           {/* <SignupRoute /> */}
