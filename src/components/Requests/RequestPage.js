@@ -15,7 +15,7 @@ import { fetchMyEventFeeds } from '../../actions/actionFeeds'
 
 class RequestPage extends Component {
   componentDidMount() {
-    this.props.fetchMyEventFeeds(this.props.user, false)
+    this.props.fetchMyEventFeeds(this.props.user, false, this.props.token)
   }
 
   renderEvents() {
@@ -91,7 +91,7 @@ class RequestPage extends Component {
 
 const mapStateToProps = (state) => {
   console.log('mapStateToProps', state)
-  return { ...state.eventFeeds, ...state.user }
+  return { ...state.eventFeeds, ...state.user, ...state.auth }
 }
 
 const mapDispatchToProps = (dispatch) => {

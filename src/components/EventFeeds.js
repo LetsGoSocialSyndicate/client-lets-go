@@ -15,7 +15,7 @@ import { handleRequest } from '../actions/actionRequest'
 
 class EventFeeds extends Component {
   componentDidMount(){
-    this.props.fetchEventFeeds()
+    this.props.fetchEventFeeds(this.props.token)
   }
 
   renderEvents() {
@@ -56,7 +56,7 @@ class EventFeeds extends Component {
               {/* <Link className="request-to-join"
                 to={`events/request/${event.event_id}`}> */}
                 <div className="oval"
-                  onClick={this.props.handleRequest.bind(null, event.event_id, this.props.user.id)}>
+                  onClick={this.props.handleRequest.bind(null, event.event_id, this.props.user.id, this.props.token)}>
                   <img className="requestButton"
                     src={requestButton} />
                 </div>
@@ -87,7 +87,7 @@ class EventFeeds extends Component {
 
 }
 
-const mapStateToProps =  (state) => ({ ...state.eventFeeds, ...state.user })
+const mapStateToProps =  (state) => ({ ...state.eventFeeds, ...state.user, ...state.auth })
 
 const dispatchToProps = (dispatch) => bindActionCreators({
   fetchEventFeeds, handleRequest
