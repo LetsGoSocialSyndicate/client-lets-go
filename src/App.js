@@ -56,7 +56,7 @@ class App extends Component {
           <Route exact path="/signup/success" render={ signupSuccessLandingPage } />
           <Route exact path="/signup/failure" render={ signupFailureLandingPage } />
           <Route exact path="/newevent" render={ newEventLandingPage } />
-          <Route exact path="/requests" component={ RequestPage } />
+          <Route exact path="/requests" render={ requestsLandingPage } />
           <Route path="/confirmation/:token" component={ SignupVerified } />
         </Switch>
       </div>
