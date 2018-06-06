@@ -8,7 +8,7 @@ import DatePicker from 'react-datepicker'
 import moment from 'moment'
 import 'react-datepicker/dist/react-datepicker.css'
 import { DATE_TIME_FORMAT } from '../constants'
-import '../assets/styles/index.css'
+import '../assets/styles/datePicker.css'
 
 const createInputFieldComponent = (type) => {
   return class extends Component {
@@ -33,16 +33,9 @@ const createDropDownFieldComponent = (dropDownName, options) => {
   }
 }
 
-const renderDateTimePicker = (props) => {
-  const { input, placeholder, defaultValue, meta: {touched, error} } = props
+const renderDateTimePicker = ({ input, placeholder, defaultValue, meta: {touched, error} }) => {
   return (
     <div>
-      <style>
-        {`.react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list {
-          padding-left: 0;
-          padding-right: 0;
-        }`}
-      </style>
       <DatePicker {...input} dateForm={DATE_TIME_FORMAT}
         className="form-control"
         showTimeSelect={true}
@@ -52,8 +45,8 @@ const renderDateTimePicker = (props) => {
         timeIntervals={15}
         minDate={ moment() }
         maxDate={ moment().add(3, "days") }
-        onChange={date => input.onChange(moment(date).format(DATE_TIME_FORMAT))}
-        selected={input.value ? moment(input.value, DATE_TIME_FORMAT) : null} />
+        dropdownMode="select"
+        onChange={date => input.onChange(moment(date).format(DATE_TIME_FORMAT))}/>
       {touched && error && <span>{error}</span>}
     </div>
 )}
