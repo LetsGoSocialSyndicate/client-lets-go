@@ -9,7 +9,8 @@ import bottom_line from '../assets/images/bottom_line.png'
 import requestButton from '../assets/images/Test.png'
 import circle from '../assets/images/bgCircleGradient.png'
 import '../assets/styles/Events.css'
-import {fetchEventFeeds} from '../actions/actionFeeds'
+import { fetchEventFeeds } from '../actions/actionFeeds'
+import { handleRequest } from '../actions/actionRequest'
 
 
 class EventFeeds extends Component {
@@ -32,7 +33,7 @@ class EventFeeds extends Component {
                 <img className="owner-image-bg"
                   src={circle} />
                 <img className="owner-image"
-                  src={event.user_image_url} alt="waaa bee boo dada!"/>
+                  src={event.user_image_url} alt="host picture"/>
               </div>
               <div className="event-snapshot">
                 <h4>{event.first_name} {event.last_name}<br />
@@ -49,14 +50,16 @@ class EventFeeds extends Component {
                   src={circle} />
                 <img className="event-image"
                   src={event.event_icon_url}
-                  alt={event.event_title} /><br />
+                  alt="event icon" /><br />
               </div>
-              <Link className="request-to-join"
-                to={`events/${event.event_id}`}>
-                <div className="oval">
-                  <img className="requestButton" src={requestButton} />
+              {/* <Link className="request-to-join"
+                to={`events/request/${event.event_id}`}> */}
+                <div className="oval"
+                  onClick={handleRequest.bind(null, event.event_id, )}>
+                  <img className="requestButton"
+                    src={requestButton} />
                 </div>
-              </Link>
+              {/* </Link> */}
             </div>
             <img className="eventDivider" src={bottom_line} />
             <br />
