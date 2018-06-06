@@ -1,8 +1,12 @@
-/*
- * Copyright 2018, Socializing Syndicate Corp.
- */
-import { LOGIN_SUCCESS, LOGIN_FAILED, LOGOUT,
-  SIGNUP_SUCCESS, SIGNUP_FAILED  } from '../constants'
+/* Copyright 2018, Socializing Syndicate Corp. */
+import {
+  LOGIN_SUCCESS,
+  LOGIN_FAILED,
+  LOGOUT,
+  SIGNUP_SUCCESS,
+  SIGNUP_FAILED,
+  VERIFICATION_STARTED
+} from '../constants'
 
 const loginSubmit = (fields, history) => {
   return async (dispatch) => {
@@ -21,37 +25,13 @@ const loginSubmit = (fields, history) => {
     const responseJSON = await response.json()
     // console.log('response:', response.status, responseJSON)
     if (response.status === 200) {
-      dispatch({ type: LOGIN_SUCCESS, token: responseJSON.token })
+      dispatch({type: LOGIN_SUCCESS, token: responseJSON.token, email: responseJSON.email})
       history.push("/")
     } else {
-      dispatch({ type: LOGIN_FAILED, error: responseJSON.message })
+      dispatch({type: LOGIN_FAILED, error: responseJSON.message})
     }
   }
 }
-
-  // return async (dispatch) => {
-  //   fetch(url, opts)
-  //     .then((result) => {
-  //       if (result.status === 200) {
-  //         return result.json()
-  //       }
-  //       return { error: result.statusText }
-  //     })
-  //     .then((result) => {
-  //       const { token, error } = result
-  //       if (error) {
-  //         dispatch({ type: LOGIN_FAILED, error })
-  //       }
-  //       else {
-  //         const payload = { username, token }
-  //         dispatch({ type: LOGIN_SUCCESS, token: payload })
-  //       }
-  //     })
-  //     .catch((err) => {
-  //       console.log('err', err)
-  //     })
-  // }
-
 
 const signupSubmit = (fields, history) => {
   return async (dispatch) => {
@@ -70,13 +50,32 @@ const signupSubmit = (fields, history) => {
     const responseJSON = await response.json()
     // console.log('response:', response.status, responseJSON)
     if (response.status === 200) {
-      dispatch({ type: SIGNUP_SUCCESS, email: fields.email })
+      dispatch({type: SIGNUP_SUCCESS, email: fields.email})
       history.push("/signup/success")
     } else {
-      dispatch({ type: SIGNUP_FAILED, error: responseJSON.message })
+      dispatch({type: SIGNUP_FAILED, error: responseJSON.message})
       history.push("/signup/failure")
     }
   }
 }
 
-export { loginSubmit, signupSubmit }
+const verifyAccount = (token) => {
+  return async (dispatch) => {
+    dispatch({type: VERIFICATION_STARTED})
+    const url = `${process.env.REACT_APP_API_URL}/confirmation/${token}`
+    const response = await fetch(url)
+    const responseJSON = await response.json()
+    // console.log('response:', response.status, responseJSON)
+    if (response.status === 200) {
+      dispatch({type: LOGIN_SUCCESS, token: responseJSON.token, email: responseJSON.email})
+    } else {
+      dispatch({type: LOGIN_FAILED, error: responseJSON.message})
+    }
+  }
+}
+
+export {
+  loginSubmit,
+  signupSubmit,
+  verifyAccount
+}

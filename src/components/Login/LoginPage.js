@@ -3,7 +3,7 @@
  */
 import React from 'react'
 import {connect} from 'react-redux'
-import {withRouter} from "react-router-dom"
+import {Link, withRouter} from "react-router-dom"
 import {bindActionCreators} from 'redux'
 import '../../assets/styles/Login.css'
 
@@ -22,6 +22,8 @@ const LoginPage = ({loginSubmit, history}) => {
   return (<div className="page">
     <LoginForm onSubmit={ action }/>
     <p className="error" id="login-error"></p>
+    <Link to='/signup'>Create account</Link>
+    <Link to='/forgot-password'>Forgot password?</Link>
   </div>)
 }
 

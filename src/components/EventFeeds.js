@@ -22,8 +22,10 @@ class EventFeeds extends Component {
       Object.values(this.props.eventFeeds)
       .map(event => {
         let eventDate = {
-          date: new Date(event.event_start_time).toDateString().substr(4,7),
-          time: (event.event_start_time).substr(11,5)
+          date: "2018/05/03",
+          time: "10:45:11"
+          // date: new Date(event.event_start_time).toDateString().substr(4,7),
+          // time: (event.event_start_time).substr(11,5)
         }
 
         return (
