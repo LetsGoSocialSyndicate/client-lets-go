@@ -86,13 +86,13 @@
   align-items: space-around;
 }
 
-.dropdown li .logout img {
+.dropdown li .nb-logout img {
   width: 70px;
   height: 70px;
   margin-top: 12px;
 }
 
-.dropdown li .logout {
+.dropdown li .nb-logout {
   background-color: #4E3E3E;
   height: 100px;
   width: 100px;

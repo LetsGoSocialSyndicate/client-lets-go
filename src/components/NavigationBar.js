@@ -9,6 +9,20 @@ import '../assets/styles/NavigationBar.css'
 import ellipsis from '../assets/images/ellipsis-h.svg'
 import {logout} from '../actions/actionAuth'
 
+const NavigationButton = ({bar, to, alt, img, action}) => {
+  const onClick = () => {
+    bar.setState({ isOpen: false })
+    if (action) {
+      action()
+    }
+    bar.props.history.push("/" + to)
+  }
+  return (
+      <button onClick={onClick}>
+        <img src={require('../assets/images/' + img)} alt={alt}/>
+      </button>
+  )
+}
 
 class NavigationBar extends Component {
   constructor(props) {
@@ -23,14 +37,47 @@ class NavigationBar extends Component {
   }
 
   renderMenu() {
-    const handleLogout = () => {
-      this.setState({ isOpen: false })
-      this.props.logout(this.props.history)
-    }
+    // const handleLogout = () => {
+    //   this.setState({ isOpen: false })
+    //   this.props.logout()
+    //   this.props.history.push("/")
+    // }
     if (this.state.isOpen) {
       return (
         <div className="dropdown">
           <ul>
+            <li>
+              <div className="nb-user-profile">
+                <NavigationButton bar={this} to="profile"
+                                  alt="User profile" img="user.png" />
+              </div>
+            </li>
+            <li>
+              <div className="nb-notification">
+                <NavigationButton bar={this} to="notification"
+                                  alt="Notification" img="events.png" />
+              </div>
+            </li>
+            <li>
+              <div className="nb-requests">
+                <NavigationButton bar={this} to="requests"
+                                  alt="Requests" img="paper-plane.png" />
+              </div>
+            </li>
+            <li>
+              <div className="nb-newevent">
+                <NavigationButton bar={this} to="newevent"
+                                  alt="Create a new event" img="plus.png" />
+              </div>
+            </li>
+            <li>
+              <div className="nb-logout">
+                <NavigationButton bar={this} to="" alt="Logout"
+                                  img="exit.png" action={this.props.logout} />
+              </div>
+            </li>
+          </ul>
+          {/* <ul>
             <li>
               <Link to='profile'>
                 <div>
@@ -66,7 +113,7 @@ class NavigationBar extends Component {
                   </button>
                 </div>
             </li>
-          </ul>
+          </ul> */}
         </div>
       )
     }

@@ -74,10 +74,9 @@ const verifyAccount = (token) => {
   }
 }
 
-const logout = (history) => {
+const logout = () => {
   return async (dispatch) => {
     dispatch({type: LOGOUT})
-    history.push('/')
   }
 }
 
