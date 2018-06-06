@@ -46,6 +46,7 @@ const renderDateTimePicker = ({ input, placeholder, defaultValue, meta: {touched
         minDate={ moment() }
         maxDate={ moment().add(3, "days") }
         dropdownMode="select"
+        required
         onChange={date => input.onChange(moment(date).format(DATE_TIME_FORMAT))}/>
       {touched && error && <span>{error}</span>}
     </div>
