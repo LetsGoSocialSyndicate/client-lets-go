@@ -9,6 +9,7 @@ body {
   padding: 0;
   font-family: 'Roboto', sans-serif;
   color: white;
+  cursor: pointer;
   background-image: url("../images/assets_5.28-05.png");
   background-repeat: no-repeat;
   background-attachment: fixed;
