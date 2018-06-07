@@ -15,7 +15,7 @@ const initialFeedsState = {
 function eventFeeds(state = initialFeedsState, action) {
   switch (action.type) {
   case FETCH_EVENT_FEEDS_START:
-    console.log('reducer eventFeeds', state, action)
+    //console.log('reducer eventFeeds', state, action)
     return {
       ...state,
       isLoading: true,
@@ -29,7 +29,7 @@ function eventFeeds(state = initialFeedsState, action) {
       acc[feed.event_id] = { ...feed }
       return acc
     }, {})
-    console.log(mappedKey);
+    //console.log(mappedKey);
     return {
       ...state,
       isLoading: false,

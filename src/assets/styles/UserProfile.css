@@ -1,6 +1,43 @@
-.white-circle {
+/*
+* Copyright 2018, Socializing Syndicate Corp.
+*/
+.container-user-top {
+  margin-top: 15%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+.container-user, .user-li {
+  background: rgba(255, 255, 255, 0);
+  border: none
+}
+.image {
+  display: flex;
   height: 200px;
-  width: 200px;
+  max-width: 700px;
+  margin: -16px auto auto auto;
+}
+.user-image {
+
+  margin: auto;
+  height: 160px;
+  width: 160px;
   border-radius: 50%;
-  position: relative;
+  /* position: absolute; */
+  background-color: #fff;
+  padding: 6px;
+}
+
+.user-name h3 {
+  margin-top: -16px;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+}
+
+.row-user-about {
+  text-align: center;
+}
+
+.row-user-about h3 {
+  text-align: center;
 }
