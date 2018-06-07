@@ -18,9 +18,9 @@ const NavigationButton = ({bar, to, alt, img, action}) => {
     bar.props.history.push("/" + to)
   }
   return (
-      <button className="navButton" onClick={onClick}>
+      <span className="navButton" onClick={onClick}>
         <img src={require('../assets/images/' + img)} alt={alt}/>
-      </button>
+      </span>
   )
 }
 

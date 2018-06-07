@@ -35,10 +35,10 @@ class RequestPage extends Component {
           <li className="list-group-item event-li" key={event.event_id}>
             <div className="row row-event-owner">
               <div>
-                <img className="owner-image-bg"
+                <img className="owner-image-rq-bg"
                   src={circle} />
-                <img className="owner-image"
-                  src={event.user_image_url} alt="waaa bee boo dada!"/>
+                <img className="owner-image-rq"
+                  src={event.user_image_url} alt="event owner imgae"/>
               </div>
               <div className={`event-snapshot ${displayClassName}`}>
                 <h4>{event.first_name} {event.last_name}<br />
@@ -51,9 +51,9 @@ class RequestPage extends Component {
             </div>
             <div className="row">
               <div className="event-image-holder event-image-overlap">
-                <img className="event-image-bg"
+                <img className="event-image-rq-bg"
                   src={circle} />
-                <img className="event-image"
+                <img className="event-image-rq"
                   src={event.event_icon_url}
                   alt={event.event_title} /><br />
               </div>

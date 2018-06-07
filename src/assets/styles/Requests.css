@@ -5,13 +5,33 @@
   background-image: url("../images/assets_5.28-06.png");
   background-repeat: no-repeat;
   background-attachment: fixed;
+  background-position: center;
   background-size: cover;
 }
 
 .container-requests, .event-li  {
   background: rgba(255, 255, 255, 0);
-  border: none
+  border: none;
 }
+
+ .owner-image-rq-bg {
+   height: 105px;
+   width: 105px;
+   border-radius: 50%;
+   position: relative;
+   top: -11%
+ }
+
+ .owner-image-rq {
+   height: 60px;
+   width: 60px;
+   border-radius: 50%;
+   background-color: white;
+   margin: 10px;
+   position: absolute;
+   top: 5.5%;
+   left: 4%
+ }
 
 .event-image-holder {
   display: flex;
@@ -19,22 +39,22 @@
   align-items: center;
 }
 
-.event-image-bg {
+.event-image-rq-bg {
   height: 80px;
   width: 80px;
   border-radius: 50%;
   position: relative;
-  left: -15px;
+  left: -16px;
 }
 
-.event-image {
+.event-image-rq {
   height: 42px;
   width: 42px;
   border-radius: 50%;
   background-color: white;
   position: relative;
   top: -1px;
-  left: -86px
+  left: -16%
 }
 
 .event-image-overlap {
