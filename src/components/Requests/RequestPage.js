@@ -12,7 +12,11 @@ import messageButton from '../../assets/images/message.png'
 import '../../assets/styles/Events.css'
 import '../../assets/styles/Requests.css'
 import { fetchMyEventFeeds } from '../../actions/actionFeeds'
+<<<<<<< HEAD
 import { verifyAccount } from '../../actions/actionAuth'
+=======
+import { verifyLoggedIn } from '../../actions/actionRequestPage'
+>>>>>>> 8490cfe509a95d4d4171a8124b41bf9085ff76ef
 
 const renderEvents = () => {
   console.log('RenderEvents props', this.props)
