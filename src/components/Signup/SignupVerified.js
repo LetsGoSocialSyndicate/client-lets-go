@@ -11,7 +11,7 @@ class SignupVerified extends Component {
 
   async componentDidMount() {
     console.log("SignupVerified token:", this.props.match.params.token)
-    this.props.verifyAccount(this.props.match.params.token)
+    this.props.verifyAccount(this.props.match.params.token, "/confirmation")
   }
 
   componentWillMount() {

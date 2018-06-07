@@ -20,7 +20,9 @@ function authenticate(state = initialState, action) {
       verified: false
     }
   case LOGIN_SUCCESS:
-    console.log("authenticate reducer:", action, state)
+    console.log("authenticate reducer action:", action)
+    console.log("authenticate reducer state:", state)
+
     return {
       ...state,
       isUserLoggedIn: true,
