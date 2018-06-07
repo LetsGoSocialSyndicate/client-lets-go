@@ -30,7 +30,10 @@ const fetchMyEventFeeds = (user, hosted, token) => {
   console.log('fetchMyEventFeeds', url)
   return async (dispatch) => {
     const opts = getRequestOptions('GET', token)
-    const response = await fetch(url)
+    console.log('user', user)
+    console.log('token', token)
+    console.log('opts', opts)
+    const response = await fetch(url, opts)
     if(response.status === 200){
       const responseJSON = await response.json()
       // console.log('responseJSON', responseJSON)
