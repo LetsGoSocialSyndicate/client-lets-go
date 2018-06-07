@@ -15,6 +15,7 @@ import { fetchMyEventFeeds } from '../../actions/actionFeeds'
 
 class RequestPage extends Component {
   componentDidMount() {
+    console.log('componentDidMount---', this.props.user)
     this.props.fetchMyEventFeeds(this.props.user, false, this.props.token)
   }
 
@@ -26,6 +27,10 @@ class RequestPage extends Component {
           date: new Date(event.event_start_time).toDateString().substr(4,7),
           time: (event.event_start_time).substr(11,5)
         }
+        let displayClassName = 'event-pending'
+        if (event.join_request_accepted_at) {
+          displayClassName = 'event-accepted'
+        }
         return (
           <li className="list-group-item event-li" key={event.event_id}>
             <div className="row row-event-owner">
@@ -35,7 +40,7 @@ class RequestPage extends Component {
                 <img className="owner-image"
                   src={event.user_image_url} alt="waaa bee boo dada!"/>
               </div>
-              <div className="event-snapshot">
+              <div className={`event-snapshot ${displayClassName}`}>
                 <h4>{event.first_name} {event.last_name}<br />
                   <small>
                     {eventDate.date} at {eventDate.time}<br />
@@ -52,7 +57,7 @@ class RequestPage extends Component {
                   src={event.event_icon_url}
                   alt={event.event_title} /><br />
               </div>
-              <div className="buttons-overlap">
+              <div className={`buttons-overlap ${displayClassName}`}>
                 <Link className="request-to-join" to={`events/${event.event_id}`}>
                   <div className="oval screenButton">
                     <img className="screenButton" src={acceptedButton} />
@@ -90,7 +95,7 @@ class RequestPage extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log('mapStateToProps', state)
+  // console.log('mapStateToProps', state)
   return { ...state.eventFeeds, ...state.user, ...state.auth }
 }
 
