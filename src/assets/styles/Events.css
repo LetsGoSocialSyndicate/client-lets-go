@@ -17,6 +17,10 @@
  border: none
  }
 
+.event-li:not(:first-of-type) {
+  margin-top: -7%;
+}
+
  .owner-image-bg {
    height: 105px;
    width: 105px;

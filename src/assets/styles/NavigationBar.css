@@ -29,7 +29,8 @@
 }
 
 .nav .brand {
-  width: 35%;
+  margin-top: 1%;
+  width: 33%;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -39,7 +40,7 @@
 }
 
 .nav .menu {
-  width: 35%;
+  width: 33%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -55,10 +56,9 @@
 }
 .dropdown {
   position: fixed;
-  width: 100px;
+  /* width: 100px; */
   height: auto;
-  margin-top: -20px;
-  opacity: 1;
+  /* opacity: 2; */
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -69,22 +69,20 @@
   width: 100px;
   height: 100px;
 }
+
 .dropdown ul {
   display: flex;
-  height: 100%;
-  width: 100%;
+  /* height: 100%;
+  width: 100%; */
   flex-direction: column;
   justify-content: space-around;
-  padding-top: 20px;
-  padding-left: 0px;
+  padding-left: 15%;
 }
+
 .dropdown li {
-  list-style-type: none;
-  padding: 0;
-  display: flex;
-  justify-content: space-around;
-  align-items: space-around;
-}
-.navButton {
-  padding: 0;
+  /* list-style-type: none; */
+  /* padding: 0; */
+  /* display: flex; */
+  /* justify-content: space-around;
+  align-items: space-around; */
 }
