@@ -11,7 +11,7 @@ import {
 
 const loginSubmit = (fields, history) => {
   return async (dispatch) => {
-    const url = `${process.env.REACT_APP_API_URL}/login`
+    let url = `${process.env.REACT_APP_API_URL}/login`
     const opts = {
       method: 'POST',
       body: JSON.stringify(fields),
