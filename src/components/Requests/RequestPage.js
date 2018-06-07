@@ -82,7 +82,6 @@ class RequestPage extends Component {
     //when we come here from email: hosted === true
     this.props.fetchMyEventFeeds(this.props.user, true, this.props.auth.token)
   }
-<<<<<<< HEAD
 
   renderEvents() {
     return (
@@ -141,10 +140,7 @@ class RequestPage extends Component {
         )
       })
     )
-=======
-  componentWillReceiveProps(newProps) {
-    console.log('componentDidReceiveProps???? NEW PROPS', newProps)
->>>>>>> 91fc953088c62f5e44e977900e078b32807e2aa9
+
   }
   render() {
      if (!this.props.isLoaded) {

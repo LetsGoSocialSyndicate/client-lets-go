@@ -41,3 +41,17 @@
 .row-user-about h3 {
   text-align: center;
 }
+
+textarea {
+  color: black;
+  height: 20rem;
+  width: 30rem;
+  border-radius: 2%;
+  border: none;
+}
+
+.btn-user {
+  color: #2965a9;
+  background-color: #a2f0f3;
+  margin-left: 3px;
+}
