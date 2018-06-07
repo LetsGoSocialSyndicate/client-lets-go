@@ -40,7 +40,7 @@ class RequestPage extends Component {
                 <img className="owner-image-rq"
                   src={event.user_image_url} alt="event owner imgae"/>
               </div>
-              <div className={`event-snapshot ${displayClassName}`}>
+              <div className={`event-snapshot-rq ${displayClassName}`}>
                 <h4>{event.first_name} {event.last_name}<br />
                   <small>
                     {eventDate.date} at {eventDate.time}<br />

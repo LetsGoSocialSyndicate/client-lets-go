@@ -83,3 +83,20 @@
 .event-accepted {
   opacity: 1;
 }
+
+@media(min-width: 400px)  {
+
+   .event-image-rq {
+     position: relative;
+     top: -1.7rem;
+     left: -9.5rem
+   }
+   .owner-image-rq {
+     top: 5.3%;
+     left: 3.5%
+   }
+   .event-image-rq-bg {
+     top: -1.6rem;
+     left: -3.5rem;
+   }
+}

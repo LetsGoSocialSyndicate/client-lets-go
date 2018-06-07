@@ -103,3 +103,13 @@
   margin-bottom: 10px;
   height: 30px;
 }
+
+@media(min-width: 400px)  {
+
+   .event-image {
+     left: -19.5%
+   }
+   .owner-image {
+     left: 3.5%
+   }
+}
