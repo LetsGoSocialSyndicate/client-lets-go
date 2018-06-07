@@ -4,7 +4,7 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import bottom_line from '../../assets/images/bottom_line.png'
 import circle from '../../assets/images/bgCircleGradient.png'
 import acceptedButton from '../../assets/images/accepted.png'
@@ -12,11 +12,13 @@ import messageButton from '../../assets/images/message.png'
 import '../../assets/styles/Events.css'
 import '../../assets/styles/Requests.css'
 import { fetchMyEventFeeds } from '../../actions/actionFeeds'
+import { verifyLoggedIn } from '../../actions/actionRequestPage'
 
 class RequestPage extends Component {
   componentDidMount() {
     console.log('componentDidMount---', this.props.user)
     this.props.fetchMyEventFeeds(this.props.user, false, this.props.token)
+    this.props.verifyLoggedIn(this.props.match.params.token)
   }
 
   renderEvents() {
@@ -79,18 +81,19 @@ class RequestPage extends Component {
   }
 
   render() {
-    if (!this.props.isLoaded) {
-      return ( <div>Loading...</div>)
+    if (!this.props.auth.verified || !this.props.isLoaded) {
+      return (<div>Loading...</div>)
     }
-    return (
-      <div className="container-requests-top">
-        <div className="container container-events">
-          <ul className="list-group">
-            {this.renderEvents()}
-          </ul>
+
+      return (
+        <div className="container-requests-top">
+          <div className="container container-events">
+            <ul className="list-group">
+              {this.renderEvents()}
+            </ul>
+          </div>
         </div>
-      </div>
-    )
+      )
   }
 }
 
@@ -100,7 +103,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({ fetchMyEventFeeds }, dispatch)
+  return bindActionCreators({ fetchMyEventFeeds, verifyLoggedIn }, dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(RequestPage)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(RequestPage))
