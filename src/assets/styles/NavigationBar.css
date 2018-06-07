@@ -76,11 +76,11 @@
   width: 100%; */
   flex-direction: column;
   justify-content: space-around;
-  padding-left: 15%;
+  padding-left: 0;
 }
 
 .dropdown li {
-  /* list-style-type: none; */
+  list-style-type: none;
   /* padding: 0; */
   /* display: flex; */
   /* justify-content: space-around;
