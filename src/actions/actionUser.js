@@ -8,6 +8,7 @@
    EDIT_USER_FAILED,
    EDIT_USER_CANCEL
  } from '../constants'
+ import { getRequestOptions } from './actionUtils'
 
 const fetchUser = (email) => {
   return async (dispatch) => {
@@ -27,26 +28,31 @@ const fetchUser = (email) => {
   }
 }
 
-const updateProfile = (newUserInfo, user) => {
+const updateProfile = (newUserInfo, user, token) => {
   return async (dispatch) => {
-    const url = `${process.env.REACT_APP_API_URL}/profile/${user.id}`
-    const opts = {
-      method: 'PATCH',
-      body: JSON.stringify(newUserInfo),
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      }
-    }
+    const url = `${process.env.REACT_APP_API_URL}/users/${user.id}`
+    const opts = getRequestOptions('PATCH', token, newUserInfo)
     const response = await fetch(url, opts)
     const responseJSON = await response.json()
     console.log('response:', response.status, responseJSON)
     if (response.status === 200) {
-      dispatch({type: EDIT_USER_SUCCESS})
+      dispatch({type: EDIT_USER_SUCCESS, user: responseJSON})
     } else {
       dispatch({type: EDIT_USER_FAILED, error: responseJSON.message})
     }
   }
 }
 
-export {fetchUser, updateProfile}
+const startEditing = () => {
+  return async (dispatch) => {
+    dispatch({type: EDIT_USER_START})
+  }
+}
+
+const cancelEditing = () => {
+  return async (dispatch) => {
+    dispatch({type: EDIT_USER_CANCEL})
+  }
+}
+
+export {fetchUser, updateProfile, startEditing, cancelEditing}

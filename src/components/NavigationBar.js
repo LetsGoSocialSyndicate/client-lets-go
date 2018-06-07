@@ -127,14 +127,19 @@ class NavigationBar extends Component {
             { this.props.isUserLoggedIn ? <img src={require('../assets/images/ellipsis.png')} alt="Menu" onClick={this.toggle} /> : null }
           </span>
           <div className="logo">
-            <Link to="/">
+            <NavigationButton bar={this} to=""
+                              alt="Let's Go Logo" img="letsgo_rgb_white.png" />
+            {/* <Link to="/">
               <img src={require('../assets/images/letsgo_rgb_white.png')} alt="Let's Go Logo"/>
-            </Link>
+            </Link> */}
           </div>
           <span className="brand">
-            <Link to="/">
+            <NavigationButton bar={this} to=""
+                              alt="Let's Go" img="Lets Go Word.png" />
+
+            {/* <Link to="/">
               <img src={require('../assets/images/Lets Go Word.png')} alt="Let's Go"/>
-            </Link>
+            </Link> */}
           </span>
         </div>
         { this.renderMenu() }
