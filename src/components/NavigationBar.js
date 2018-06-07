@@ -133,6 +133,7 @@ class NavigationBar extends Component {
               <img src={require('../assets/images/letsgo_rgb_white.png')} alt="Let's Go Logo"/>
             </Link> */}
           </div>
+
           <span className="brand">
             <NavigationButton bar={this} to=""
                               alt="Let's Go" img="Lets Go Word.png" />
@@ -141,6 +142,7 @@ class NavigationBar extends Component {
               <img src={require('../assets/images/Lets Go Word.png')} alt="Let's Go"/>
             </Link> */}
           </span>
+
         </div>
         { this.renderMenu() }
       </div>

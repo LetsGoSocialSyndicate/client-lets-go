@@ -11,16 +11,18 @@ import {
 
 const initialUserState = {
   user: {},
+  otherUser: {},
   isReadOnly: true
 }
 
 function reducerUser(state = initialUserState, action) {
   switch (action.type) {
-    case FETCH_USER: //type, user
+    case FETCH_USER: //type, user, isOtherUser
       console.log('reducer User', state, action)
       return {
         ...state,
-        user: action.user,
+        user: action.isOtherUser ? state.user : action.user,
+        otherUser: action.isOtherUser ? action.user : state.otherUser,
         isReadOnly: true,
         error: null
     }

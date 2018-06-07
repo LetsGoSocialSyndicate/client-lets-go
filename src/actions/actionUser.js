@@ -10,16 +10,18 @@
  } from '../constants'
  import { getRequestOptions } from './actionUtils'
 
-const fetchUser = (email) => {
+const fetchOtherUser = (id, token) => {
   return async (dispatch) => {
-    const url = `${process.env.REACT_APP_API_URL}/users/${email}`
-    const response = await fetch(url)
+    const url = `${process.env.REACT_APP_API_URL}/users/${id}`
+    const opts = getRequestOptions('GET', token)
+    const response = await fetch(url, opts)
     const responseJSON = await response.json()
     console.log('fetchUser response:', response.status, responseJSON)
     if(response.status === 200){
       dispatch({
         type: FETCH_USER,
-        user: responseJSON
+        user: responseJSON,
+        isOtherUser: true
       })
     }
     else {
@@ -55,4 +57,4 @@ const cancelEditing = () => {
   }
 }
 
-export {fetchUser, updateProfile, startEditing, cancelEditing}
+export {fetchOtherUser, updateProfile, startEditing, cancelEditing}

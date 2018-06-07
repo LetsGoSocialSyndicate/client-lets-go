@@ -7,7 +7,7 @@ const initialState = {
   token: null,
   isUserLoggedIn: false,
   error: null,
-  email: null,
+  email: null,  // signup is using it
   verified: false
 }
 
@@ -25,7 +25,6 @@ function authenticate(state = initialState, action) {
       ...state,
       isUserLoggedIn: true,
       token: action.token,
-      email: action.email,
       verified: true,
       error: null
     }

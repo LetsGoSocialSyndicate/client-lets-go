@@ -3,7 +3,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import '../../assets/styles/UserProfile.css'
-import {fetchUser, updateProfile, startEditing, cancelEditing} from '../../actions/actionUser'
+import {fetchOtherUser, updateProfile, startEditing, cancelEditing} from '../../actions/actionUser'
 
 const handleSave = (user, token, updateAction) => {
   const about = document.querySelector('#aboutToEdit').value || ''
@@ -51,17 +51,22 @@ const constructAboutInput = (value, isReadOnly) => {
 }
 
 class UserProfile extends Component {
-  // componentDidMount() {
-  //   this.props.fetchUser(this.props.auth.email)
-  // }
+
+  componentDidMount() {
+    console.log("UserProfile props:", this.props)
+    if (this.props.forOtherUser) {
+      this.props.fetchOtherUser(this.props.match.params.id, this.props.auth.token)
+    }
+  }
 
   render() {
-    console.log("UserProfile render and props are:", this.props.user.user)
-    if (!this.props.user) {
+    const forOtherUser = this.props.forOtherUser
+    const user = forOtherUser ? this.props.user.otherUser : this.props.user.user
+    const isReadOnly = forOtherUser ? true : this.props.user.isReadOnly
+    console.log("UserProfile render and props are:", user)
+    if (!user) {
       return <div className="page">Loading...</div>
     }
-    const user = this.props.user.user
-    const isReadOnly = this.props.user.isReadOnly
 
     return (<div className="container-user-top">
       <div className="container container-user">
@@ -81,7 +86,7 @@ class UserProfile extends Component {
           <h4>Add photos...</h4>
         </div>
       </div>
-      {constructButtons(user, this.props.auth.token, isReadOnly, this.props.startEditing, this.props.updateProfile, this.props.cancelEditing)}
+      {forOtherUser ? null : constructButtons(user, this.props.auth.token, isReadOnly, this.props.startEditing, this.props.updateProfile, this.props.cancelEditing)}
     </div>)
   }
 }
@@ -91,7 +96,7 @@ const mapStateToProps = (state) => {
 }
 
 const dispatchToProps = (dispatch) => bindActionCreators({
-  //fetchUser,
+  fetchOtherUser,
   updateProfile,
   startEditing,
   cancelEditing

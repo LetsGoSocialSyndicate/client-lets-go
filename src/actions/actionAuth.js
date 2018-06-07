@@ -26,7 +26,12 @@ const loginSubmit = (fields, history) => {
       let responseJSON = await response.json()
       // console.log('response:', response.status, responseJSON)
       dispatch({type: LOGIN_SUCCESS, token: responseJSON.token,
-        email: responseJSON.user.email, user: responseJSON.user })
+        user: responseJSON.user })
+      dispatch({
+        type: FETCH_USER,
+        user: responseJSON.user,
+        isOtherUser: false
+      })
       history.push("/")
     }
     else {
