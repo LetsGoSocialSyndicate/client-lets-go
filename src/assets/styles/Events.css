@@ -4,12 +4,13 @@
  /*
   * Copyright 2018, Socializing Syndicate Corp.
   */
- .container-events-top {
-   background-image: url("../images/assets_5.28-06.png");
-   background-repeat: no-repeat;
-   background-attachment: fixed;
-   background-size: cover;
- }
+.container-events-top, .container-requests-top {
+    background-image: url("../images/assets_5.28-06.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
 
  .container-events, .event-li  {
  background: rgba(255, 255, 255, 0);
@@ -29,8 +30,8 @@
    background-color: white;
    margin: 10px;
    position: absolute;
-   top: 21px;
-   left: 13px
+   top: 5.5%;
+   left: 4%
  }
 
  .event-image-holder {
@@ -44,7 +45,7 @@
    width: 160px;
    border-radius: 50%;
    position: relative;
-   left: 50px;
+   left: 16%;
  }
 
  .event-image {
@@ -55,7 +56,7 @@
    margin: 10px;
    position: relative;
    top: -2px;
-   left: -86px
+   left: -23.5%
  }
 
  .row-event-owner {
@@ -65,18 +66,15 @@
  .event-snapshot{
    padding-top: 1%;
    margin: 10px 0 0 -10px;
+   text-align: left;
  }
 
  .event-snapshot small {
    color: white
  }
 
- .row-event-info {
-   text-align: center;
- }
-
  .row-event-info h3 {
-   text-align: left;
+   /* text-align: left; */
  }
 
  .requestButton {
