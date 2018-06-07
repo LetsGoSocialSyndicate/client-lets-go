@@ -11,7 +11,7 @@ import {
 
 const loginSubmit = (fields, history) => {
   return async (dispatch) => {
-    const url = `${process.env.REACT_APP_API_URL}/login`
+    let url = `${process.env.REACT_APP_API_URL}/login`
     const opts = {
       method: 'POST',
       body: JSON.stringify(fields),
@@ -22,19 +22,12 @@ const loginSubmit = (fields, history) => {
     }
     let response = await fetch(url, opts)
     if (response.status === 200) {
+      console.log('loginSubmit:response', response)
       let responseJSON = await response.json()
       // console.log('response:', response.status, responseJSON)
-      dispatch({type: LOGIN_SUCCESS, token: responseJSON.token, email: responseJSON.email})
+      dispatch({type: LOGIN_SUCCESS, token: responseJSON.token,
+        email: responseJSON.user.email, user: responseJSON.user })
       history.push("/")
-      url = `${process.env.REACT_APP_API_URL}/users/${fields.email}`
-      response = await fetch(url)
-      if (response.status === 200) {
-        responseJSON = await response.json()
-        dispatch({ type: FETCH_USER, user: responseJSON })
-      }
-      else {
-        dispatch({type: LOGIN_FAILED, error: response.message})
-      }
     }
     else {
       dispatch({type: LOGIN_FAILED, error: response.message})
