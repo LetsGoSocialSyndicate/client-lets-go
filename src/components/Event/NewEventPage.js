@@ -17,7 +17,7 @@ class NewEventPage extends Component {
 
   onSubmit = (action, fields) => {
     console.log("NewEventPage ON SUBMIT:", fields, this.props.token)
-    action(fields, this.props.token)
+    action(fields, this.props.token, this.props.history)
   }
 
   render() {

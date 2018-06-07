@@ -45,7 +45,7 @@ const fetchMyEventFeeds = (user, hosted, token) => {
   }
 }
 
-const addNewEvent = (newEvent, token) => {
+const addNewEvent = (newEvent, token, history) => {
   console.log('addNewEvent', token)
   return async (dispatch) => {
     const url = `${process.env.REACT_APP_API_URL}/events`
@@ -58,6 +58,7 @@ const addNewEvent = (newEvent, token) => {
         type: ADD_NEW_EVENT,
         payload: responseJSON
       })
+      history.push("/")
     }
     else {
       // error
