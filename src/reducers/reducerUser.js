@@ -18,7 +18,8 @@ const initialUserState = {
 function reducerUser(state = initialUserState, action) {
   switch (action.type) {
     case FETCH_USER: //type, user, isOtherUser
-      console.log('reducer User', state, action)
+      console.log('reducer User state', state.user)
+      console.log('reducer User action', action.user)
       return {
         ...state,
         user: action.isOtherUser ? state.user : action.user,

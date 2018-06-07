@@ -18,6 +18,7 @@ import CheckEmail from './components/Signup/CheckEmail'
 import SignupError from './components/Signup/SignupError'
 import UserProfile from './components/UserProfile/UserProfile'
 import RequestPage from './components/Requests/RequestPage'
+import RequestPageVerified from './components/Requests/RequestPageVerified'
 
 class App extends Component {
   render() {
@@ -26,6 +27,7 @@ class App extends Component {
     const error = this.props.error
 
     console.log("App isUserLoggedIn",isUserLoggedIn)
+    console.log("App props",this.props)
 
     let homeLandingPage = () => (<Redirect to="/login"/>)
     let userProfileLandingPage = () => (<Redirect to="/login"/>)
@@ -60,6 +62,7 @@ class App extends Component {
           <Route exact path="/signup/failure" render={ signupFailureLandingPage } />
           <Route exact path="/newevent" render={ newEventLandingPage } />
           <Route exact path="/requests" render={ requestsLandingPage } />
+          <Route path="/request/verify/:token" component={RequestPageVerified} />
           <Route path="/confirmation/:token" component={ SignupVerified } />
         </Switch>
       </div>
