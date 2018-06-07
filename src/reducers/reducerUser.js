@@ -27,12 +27,14 @@ function reducerUser(state = initialUserState, action) {
         error: null
     }
     case EDIT_USER_START: //type
+    console.log('reducer User', state, action)
       return {
         ...state,
         isReadOnly: false,
         error: null
     }
     case EDIT_USER_SUCCESS: //type, user
+    console.log('reducer User', state, action)
       return {
         ...state,
         user: action.user,
@@ -40,12 +42,14 @@ function reducerUser(state = initialUserState, action) {
         error: null
     }
     case EDIT_USER_FAILED: //type, error
+    console.log('reducer User', state, action)
       return {
         ...state,
         isReadOnly: true,
         error: action.error
     }
     case EDIT_USER_CANCEL: //type
+    console.log('reducer User', state, action)
       return {
         ...state,
         isReadOnly: true,

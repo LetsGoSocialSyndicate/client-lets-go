@@ -19,7 +19,6 @@ class EventFeeds extends Component {
   }
 
   renderEvents() {
-    console.log('this.props.user', this.props.user)
     return (
       Object.values(this.props.eventFeeds)
       .map(event => {
@@ -27,7 +26,6 @@ class EventFeeds extends Component {
           date: new Date(event.event_start_time).toDateString().substr(4,7),
           time: (event.event_start_time).substr(11,5)
         }
-        console.log("EVENT:",event)
         return (
           <li className="list-group-item event-li" key={event.event_id}>
             <div className="row row-event-owner">

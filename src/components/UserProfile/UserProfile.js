@@ -53,17 +53,21 @@ const constructAboutInput = (value, isReadOnly) => {
 class UserProfile extends Component {
 
   componentDidMount() {
-    console.log("UserProfile props:", this.props)
     if (this.props.forOtherUser) {
-      this.props.fetchOtherUser(this.props.match.params.id, this.props.auth.token)
+      this.props.fetchOtherUser(
+        this.props.match.params.id, this.props.auth.token)
     }
   }
 
   render() {
     const forOtherUser = this.props.forOtherUser
-    const user = forOtherUser ? this.props.user.otherUser : this.props.user.user
-    const isReadOnly = forOtherUser ? true : this.props.user.isReadOnly
-    console.log("UserProfile render and props are:", user)
+    const user = forOtherUser
+      ? this.props.user.otherUser
+      : this.props.user.user
+    const isReadOnly = forOtherUser
+      ? true
+      : this.props.user.isReadOnly
+    console.log("UserProfile user:", user)
     if (!user) {
       return <div className="page">Loading...</div>
     }
@@ -86,7 +90,14 @@ class UserProfile extends Component {
           <h4>Add photos...</h4>
         </div>
       </div>
-      {forOtherUser ? null : constructButtons(user, this.props.auth.token, isReadOnly, this.props.startEditing, this.props.updateProfile, this.props.cancelEditing)}
+      {
+        forOtherUser ? null : constructButtons(user,
+                                               this.props.auth.token,
+                                               isReadOnly,
+                                               this.props.startEditing,
+                                               this.props.updateProfile,
+                                               this.props.cancelEditing)
+      }
     </div>)
   }
 }
