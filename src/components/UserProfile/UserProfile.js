@@ -86,9 +86,9 @@ class UserProfile extends Component {
               {constructAboutInput(user.about, isReadOnly)}
             </p>
           </div>
-          <div>
+          {/* <div>
             <h4>Add photos...</h4>
-          </div>
+          </div> */}
         </div>
         { forOtherUser
             ? null
