@@ -79,12 +79,12 @@ class UserProfile extends Component {
             alt="user image"/>
           </div>
           <div className="user-name">
-            <h3>{`${user.first_name} ${user.last_name}`}</h3>
+            <h1>{`${user.first_name} ${user.last_name}`}</h1>
           </div>
           <div className="user-about">
-            <h3>
+            <p>
               {constructAboutInput(user.about, isReadOnly)}
-            </h3>
+            </p>
           </div>
           <div>
             <h4>Add photos...</h4>

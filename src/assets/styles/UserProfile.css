@@ -17,7 +17,6 @@
   margin: -16px auto auto auto;
 }
 .user-image {
-
   margin: auto;
   height: 160px;
   width: 160px;
@@ -27,20 +26,22 @@
   padding: 6px;
 }
 
-.user-name h3 {
+.user-name h1 {
   margin-top: -16px;
   font-weight: bold;
   text-align: center;
   color: white;
+  margin-bottom: 20px;
 }
 
-.row-user-about {
-  text-align: center;
+.user-about {
+  background-color: rgba(59, 59, 59, 0.73);
+  padding: 3% 2% 1% 4%;
+  border-radius: 15px;
+  text-align: left;
+  margin-bottom: 20px;
 }
 
-.row-user-about h3 {
-  text-align: center;
-}
 
 textarea {
   color: black;
