@@ -27,7 +27,7 @@ const renderEvents = (eventFeeds) => {
         displayClassName = 'event-accepted'
       }
       return (
-        <li className="list-group-item event-li" key={event.event_id}>
+        <li className="list-group-item event-li li-rq" key={event.event_id}>
           <div className="row row-event-owner">
             <div>
               <img className="owner-image-rq-bg"
