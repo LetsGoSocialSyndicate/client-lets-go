@@ -25,12 +25,12 @@ const loginSubmit = (fields, history) => {
       console.log('loginSubmit:response', response)
       let responseJSON = await response.json()
       // console.log('response:', response.status, responseJSON)
-      dispatch({type: LOGIN_SUCCESS, token: responseJSON.token })
       dispatch({
         type: FETCH_USER,
         user: responseJSON.user,
         isOtherUser: false
       })
+      dispatch({type: LOGIN_SUCCESS, token: responseJSON.token })
       history.push("/")
     }
     else {
@@ -73,13 +73,13 @@ const verifyAccount = (token, route) => {
     const responseJSON = await response.json()
     // console.log('response:', response.status, responseJSON)
     if (response.status === 200) {
-      dispatch({type: LOGIN_SUCCESS, token: responseJSON.token})
       console.log("responseJSON:", responseJSON.user)
       dispatch({
         type: FETCH_USER,
         user: responseJSON.user,
         isOtherUser: false
       })
+      dispatch({type: LOGIN_SUCCESS, token: responseJSON.token})
     } else {
       dispatch({type: LOGIN_FAILED, error: responseJSON.message})
     }
