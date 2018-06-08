@@ -9,6 +9,7 @@ import moment from 'moment'
 import 'react-datepicker/dist/react-datepicker.css'
 import { DATE_FORMAT } from '../../constants'
 import { createInputFieldComponent, createDropDownFieldComponent } from '../../utilities/guiUtils'
+import {connect} from 'react-redux'
 
 export const FIRST_NAME_FIELD = "firstName"
 export const MIDDLE_NAME_FIELD = "middleName"
@@ -49,7 +50,8 @@ const GenderOptionsField =
  * @param {function} handleSubmit - action to take on form submision.
  * @returns generated form.
  */
-const SignupForm = ({ handleSubmit }) => {
+const SignupForm = ({ auth, handleSubmit }) => {
+  console.log("SignupForm:auth:", auth)
   return (
       <form className="signup-form container"
             onSubmit={ handleSubmit }>
@@ -99,6 +101,7 @@ const SignupForm = ({ handleSubmit }) => {
             placeholder="Password"
             required />
         </div>
+        <p className="error" id="signup-error">{auth.error}</p>
         <div className="row form-group">
           <button type="submit" className="row btn btn-md submit">Submit</button>
         </div>
@@ -106,4 +109,7 @@ const SignupForm = ({ handleSubmit }) => {
   )
 }
 
-export default reduxForm({form: 'signup'})(SignupForm)
+const mapStateToProps = (state) => {
+  return {auth: state.auth}
+}
+export default connect(mapStateToProps)(reduxForm({form: 'signup'})(SignupForm))

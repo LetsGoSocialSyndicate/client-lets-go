@@ -16,19 +16,23 @@ const onSubmit = (action, history, fields) => {
   action(fields, history)
 }
 
-const LoginPage = ({loginSubmit, history}) => {
+const LoginPage = ({auth, loginSubmit, history}) => {
   console.log("LoginPage render")
   const action = (fields) => onSubmit(loginSubmit, history, fields)
   return (<div className="page">
     <LoginForm onSubmit={ action }/>
-    <p className="error" id="login-error"></p>
+    <p className="error">{auth.error}</p>
     <Link to='/signup'>Create account</Link>
     <Link to='/forgot-password'>Forgot password?</Link>
   </div>)
+}
+
+const mapStateToProps = (state) => {
+  return {auth: state.auth}
 }
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({
   loginSubmit
 }, dispatch)
 
-export default withRouter(connect(null, mapDispatchToProps)(LoginPage))
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(LoginPage))

@@ -33,11 +33,8 @@ const validateAndSetErrors = (fields) => {
     document.getElementById(element).innerHTML = "Password does not match"
     hasErrors = true
   } else {
-    // TODO: Check: empty string still takes space on HTML page...
     document.getElementById(element).innerHTML = ""
   }
-  // TODO: Check: email does not contain @ characters
-  // TODO: Check: email is not in database
   return !hasErrors
 }
 
@@ -62,8 +59,7 @@ const SignupPage = ({signupSubmit, history}) => {
   //   fields coming from actual "form submit" invocation context
   const action = (fields) => onSubmit(signupSubmit, history, fields)
   return (<div className="page">
-    <SignupForm onSubmit={ action }/>
-    <p className="error" id="signup-error"></p>
+    <SignupForm onSubmit={ action }/>    
   </div>)
 }
 

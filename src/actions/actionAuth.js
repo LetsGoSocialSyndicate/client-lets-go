@@ -21,10 +21,9 @@ const loginSubmit = (fields, history) => {
       }
     }
     let response = await fetch(url, opts)
+    let responseJSON = await response.json()
+    console.log('loginSubmit:response:', response.status, responseJSON)
     if (response.status === 200) {
-      console.log('loginSubmit:response', response)
-      let responseJSON = await response.json()
-      // console.log('response:', response.status, responseJSON)
       dispatch({
         type: FETCH_USER,
         user: responseJSON.user,
@@ -34,7 +33,7 @@ const loginSubmit = (fields, history) => {
       history.push("/")
     }
     else {
-      dispatch({type: LOGIN_FAILED, error: response.message})
+      dispatch({type: LOGIN_FAILED, error: responseJSON.message})
     }
   }
 }
@@ -54,13 +53,13 @@ const signupSubmit = (fields, history) => {
     }
     const response = await fetch(url, opts)
     const responseJSON = await response.json()
-    // console.log('response:', response.status, responseJSON)
+    console.log('signupSubmit:response:', response.status, responseJSON)
     if (response.status === 200) {
       dispatch({type: SIGNUP_SUCCESS, email: fields.email})
       history.push("/signup/success")
     } else {
       dispatch({type: SIGNUP_FAILED, error: responseJSON.message})
-      history.push("/signup/failure")
+      // history.push("/signup/failure")
     }
   }
 }
