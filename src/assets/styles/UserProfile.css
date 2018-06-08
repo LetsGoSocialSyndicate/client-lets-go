@@ -36,7 +36,7 @@
 
 .user-about {
   background-color: rgba(59, 59, 59, 0.73);
-  padding: 3% 2% 1% 4%;
+  padding: 3% 4% 1% 6%;
   border-radius: 15px;
   text-align: left;
   margin-bottom: 20px;
@@ -44,7 +44,9 @@
 
 
 textarea {
-  color: black;
+  background-color: rgba(59, 59, 59, 0);
+
+  /* color: black; */
   height: 20rem;
   width: 30rem;
   border-radius: 2%;

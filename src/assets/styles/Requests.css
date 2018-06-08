@@ -12,6 +12,7 @@
 .container-requests, .event-li  {
   background: rgba(255, 255, 255, 0);
   border: none;
+  margin-bottom: 20px;
 }
 
  .owner-image-rq-bg {
@@ -44,6 +45,7 @@
   width: 80px;
   border-radius: 50%;
   position: relative;
+  top: -10px;
   left: -16px;
 }
 
@@ -53,7 +55,7 @@
   border-radius: 50%;
   background-color: white;
   position: relative;
-  top: -1px;
+  top: -11px;
   left: -16%
 }
 
@@ -82,6 +84,11 @@
 
 .event-accepted {
   opacity: 1;
+}
+
+.li-rq:first-child h4 {
+  position: relative;
+  top: 18%;
 }
 
 @media(min-width: 400px)  {
