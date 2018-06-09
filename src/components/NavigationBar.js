@@ -8,6 +8,7 @@ import { Link, withRouter} from 'react-router-dom'
 import '../assets/styles/NavigationBar.css'
 import ellipsis from '../assets/images/ellipsis-h.svg'
 import {logout} from '../actions/actionAuth'
+import NavigationLink from './Basic/NavigationLink'
 import NavigationButton from './Basic/NavigationButton'
 
 class NavigationBar extends Component {
@@ -23,45 +24,20 @@ class NavigationBar extends Component {
   }
 
   renderMenu() {
-    // const handleLogout = () => {
-    //   this.setState({ isOpen: false })
-    //   this.props.logout()
-    //   this.props.history.push("/")
-    // }
     if (this.state.isOpen) {
       return (
         <div className="dropdown">
           <ul>
-            <li>
-              <div className="nb-user-profile">
-                <NavigationButton bar={this} to="profile"
-                                  alt="User profile" img="user.png" />
-              </div>
-            </li>
-            <li>
-              <div className="nb-notification">
-                <NavigationButton bar={this} to="notification"
-                                  alt="Notification" img="events.png" />
-              </div>
-            </li>
-            <li>
-              <div className="nb-requests">
-                <NavigationButton bar={this} to="requests"
-                                  alt="Requests" img="paper-plane.png" />
-              </div>
-            </li>
-            <li>
-              <div className="nb-newevent">
-                <NavigationButton bar={this} to="newevent"
-                                  alt="Create a new event" img="plus.png" />
-              </div>
-            </li>
-            <li>
-              <div className="nb-logout">
-                <NavigationButton bar={this} to="" alt="Logout"
-                                  img="exit.png" action={this.props.logout} />
-              </div>
-            </li>
+            <NavigationLink divClassName="nb-user-profile" navBar={this}
+              destination="profile" altText="User profile" image="user.png" />
+            <NavigationLink divClassName="nb-notification" navBar={this}
+              destination="notification" altText="Notification" image="events.png" />
+            <NavigationLink divClassName="nb-requests" navBar={this}
+              destination="requests" altText="Requests" image="paper-plane.png" />
+            <NavigationLink divClassName="nb-newevent" navBar={this}
+              destination="newevent" altText="Create a new event" image="plus.png" />
+            <NavigationLink divClassName="nb-logout" navBar={this}
+              destination="" altText="Logout" image="exit.png" action={this.props.logout}/>
           </ul>
         </div>
       )
@@ -78,20 +54,11 @@ class NavigationBar extends Component {
           <div className="logo">
             <NavigationButton bar={this} to=""
                               alt="Let's Go Logo" img="letsgo_rgb_white.png" />
-            {/* <Link to="/">
-              <img src={require('../assets/images/letsgo_rgb_white.png')} alt="Let's Go Logo"/>
-            </Link> */}
           </div>
-
           <span className="brand">
             <NavigationButton bar={this} to=""
                               alt="Let's Go" img="Lets Go Word.png" />
-
-            {/* <Link to="/">
-              <img src={require('../assets/images/Lets Go Word.png')} alt="Let's Go"/>
-            </Link> */}
           </span>
-
         </div>
         { this.renderMenu() }
       </div>

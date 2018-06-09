@@ -1,3 +1,6 @@
+/*
+ * Copyright 2018, Socializing Syndicate Corp.
+ */
 import React from 'react'
 import { Field, reduxForm } from 'redux-form'
 import 'react-datepicker/dist/react-datepicker.css'
