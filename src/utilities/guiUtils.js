@@ -7,7 +7,7 @@ import { Field } from 'redux-form'
 import DatePicker from 'react-datepicker'
 import moment from 'moment'
 import 'react-datepicker/dist/react-datepicker.css'
-import { DATE_TIME_FORMAT } from '../constants'
+import { DATE_FORMAT, TIME_FORMAT } from '../constants'
 import '../assets/styles/datePicker.css'
 
 const createInputFieldComponent = (type) => {
@@ -34,23 +34,42 @@ const createDropDownFieldComponent = (dropDownName, options) => {
   }
 }
 
-const renderDateTimePicker = ({ input, placeholder, defaultValue, meta: {touched, error} }) => {
+const renderDatePicker = ({ input, placeholder, defaultValue, meta: {touched, error} }) => {
   return (
     <div>
-      <DatePicker {...input} dateForm={DATE_TIME_FORMAT}
+      <DatePicker {...input} dateForm={DATE_FORMAT}
         className="form-control"
-        showTimeSelect={true}
+        showTimeSelect={false}
         peekNextMonth={true}
         showMonthDropdown={true}
         showYearDropdown={true}
-        timeIntervals={15}
         minDate={ moment() }
         maxDate={ moment().add(3, "days") }
         dropdownMode="select"
         required
-        onChange={date => input.onChange(moment(date).format(DATE_TIME_FORMAT))}/>
+        selected={input.value ? moment(input.value, DATE_FORMAT) : null}
+        onChange={date => input.onChange(moment(date).format(DATE_FORMAT))}/>
       {touched && error && <span>{error}</span>}
     </div>
 )}
 
-export { createInputFieldComponent, createDropDownFieldComponent, renderDateTimePicker }
+const renderTimePicker = ({ input, placeholder, defaultValue, meta: {touched, error} }) => {
+  return (
+    <div>
+      <DatePicker {...input} dateForm={TIME_FORMAT}
+        className="form-control"
+        showTimeSelect
+        showTimeSelectOnly
+        timeIntervals={15}
+        dropdownMode="select"
+        required
+        shouldCloseOnSelect={true}
+        selected={input.value ? moment(input.value, TIME_FORMAT) : null}
+        onChange={time => input.onChange(moment(time).format(TIME_FORMAT))}/>
+      {touched && error && <span>{error}</span>}
+    </div>
+)}
+
+export { createInputFieldComponent, createDropDownFieldComponent,
+  renderDatePicker, renderTimePicker
+}

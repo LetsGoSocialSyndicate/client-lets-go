@@ -4,10 +4,9 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form'
 import 'react-datepicker/dist/react-datepicker.css'
-import { createDropDownFieldComponent,
-  renderDateTimePicker
-} from '../../utilities/guiUtils'
+import { createDropDownFieldComponent } from '../../utilities/guiUtils'
 import TextComponent from '../Basic/TextComponent'
+import DateTimeComponent from '../Basic/DateTimeComponent'
 
 const TITLE_FIELD = 'title'
 const LOCATION_FIELD = 'location'
@@ -37,14 +36,10 @@ const NewEventForm = ({ handleSubmit }) => {
       </div>
       <TextComponent labelTitle="Description:" fieldName={DESCRIPTION_FIELD}
         placeholder="Description"/>
-      <div className="row form-group">
-        <label className="col-form-label">Start:</label>
-        <Field name={ START_TIME_FIELD } component={ renderDateTimePicker } />
-      </div>
-      <div className="row form-group">
-        <label className="col-form-label">End:</label>
-        <Field name={ END_TIME_FIELD } component={ renderDateTimePicker } />
-      </div>
+
+      <DateTimeComponent labelTitle="Start:" fieldName={START_TIME_FIELD}/>
+      <DateTimeComponent labelTitle="End:" fieldName={END_TIME_FIELD}/>
+
       <div className="row form-group">
         <button type="submit" className="row btn btn-md submit">Submit</button>
       </div>

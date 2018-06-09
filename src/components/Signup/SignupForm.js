@@ -27,22 +27,23 @@ const GenderOptionsField =
   createDropDownFieldComponent("Gender",
    ["Male", "Female"])
 
- const renderDatePicker = (
-   {input, placeholder, defaultValue, meta: {touched, error} }) => {
-   return (<div>
-         <DatePicker {...input} dateForm={DATE_FORMAT}
-         className="form-control"
-         peekNextMonth={true}
-         showMonthDropdown={true}
-         showYearDropdown={true}
-         dropdownMode="select"
-         maxDate={moment().subtract(18, "years")}
-         onChange={date => input.onChange(moment(date).format(DATE_FORMAT))}
-         selected={input.value ? moment(input.value, DATE_FORMAT) : null}
-         required />
-         {touched && error && <span>{error}</span>}
-       </div>
- )}
+const renderDatePicker = ({input, placeholder, defaultValue, meta: {touched, error} }) => {
+  return (
+    <div>
+      <DatePicker {...input} dateForm={DATE_FORMAT}
+        className="form-control"
+        peekNextMonth={true}
+        showMonthDropdown={true}
+        showYearDropdown={true}
+        dropdownMode="select"
+        maxDate={moment().subtract(18, "years")}
+        onChange={date => input.onChange(moment(date).format(DATE_FORMAT))}
+        selected={input.value ? moment(input.value, DATE_FORMAT) : null}
+        required />
+      {touched && error && <span>{error}</span>}
+    </div>
+  )
+}
 
 /**
  * Generates signup form based on redux-form.
