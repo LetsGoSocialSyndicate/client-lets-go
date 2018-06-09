@@ -5,8 +5,9 @@ import React from 'react'
 import { Field, reduxForm } from 'redux-form'
 import { createInputFieldComponent } from '../../utilities/guiUtils'
 
+const TextInputField = createInputFieldComponent('text')
+
 const TextComponent = ({ labelTitle, fieldName, placeholder, required}) => {
-  const TextInputField = createInputFieldComponent('text')
   return (
     <div className="row form-group">
       <label className="col-form-label">{labelTitle}</label>

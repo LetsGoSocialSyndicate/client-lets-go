@@ -4,9 +4,10 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form'
 import 'react-datepicker/dist/react-datepicker.css'
-import { createInputFieldComponent, createDropDownFieldComponent,
+import { createDropDownFieldComponent,
   renderDateTimePicker
 } from '../../utilities/guiUtils'
+import TextComponent from '../Basic/TextComponent'
 
 export const TITLE_FIELD = 'title'
 export const LOCATION_FIELD = 'location'
@@ -16,7 +17,6 @@ export const START_TIME_FIELD = 'startTime'
 export const END_TIME_FIELD = 'endTime'
 export const ICON_URL_FIELD = 'iconUrl'
 
-const TextInputField = createInputFieldComponent('text')
 const CategoryOptionsField =
   createDropDownFieldComponent('Category',
    ['Hiking', 'Skiing', 'Biking', 'Movie', 'Yoga'])
@@ -25,32 +25,18 @@ const NewEventForm = ({ handleSubmit }) => {
   return (
     <form className="signup-form container-new-event"
           onSubmit={ handleSubmit }>
-      <div className="row form-group">
-        <label className="col-form-label">Title:</label>
-        <TextInputField name={ TITLE_FIELD }
-          className="form-control"
-          placeholder="Title"
-          required />
-      </div>
-      <div className="row form-group">
-        <label className="col-form-label">Location:</label>
-        <TextInputField name={ LOCATION_FIELD }
-          className="form-control"
-          placeholder="Location"
-          required />
-      </div>
+      <TextComponent labelTitle="Title:" fieldName={TITLE_FIELD}
+        placeholder="Title" required={true}/>
+      <TextComponent labelTitle="Location:" fieldName={LOCATION_FIELD}
+        placeholder="Location" required={true}/>
       <div className="row form-group">
         <label className="col-form-label">Category:</label>
         <CategoryOptionsField name={ CATEGORY_FIELD }
           className="form-control"
           required />
       </div>
-      <div className="row form-group">
-        <label className="col-form-label">Description:</label>
-        <TextInputField name={ DESCRIPTION_FIELD }
-          className="form-control"
-          placeholder="Description"/>
-      </div>
+      <TextComponent labelTitle="Description:" fieldName={DESCRIPTION_FIELD}
+        placeholder="Description"/>
       <div className="row form-group">
         <label className="col-form-label">Start:</label>
         <Field name={ START_TIME_FIELD } component={ renderDateTimePicker } />
