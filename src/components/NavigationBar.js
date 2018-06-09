@@ -8,21 +8,7 @@ import { Link, withRouter} from 'react-router-dom'
 import '../assets/styles/NavigationBar.css'
 import ellipsis from '../assets/images/ellipsis-h.svg'
 import {logout} from '../actions/actionAuth'
-
-const NavigationButton = ({bar, to, alt, img, action}) => {
-  const onClick = () => {
-    bar.setState({ isOpen: false })
-    if (action) {
-      action()
-    }
-    bar.props.history.push("/" + to)
-  }
-  return (
-      <span className="navButton" onClick={onClick}>
-        <img src={require('../assets/images/' + img)} alt={alt}/>
-      </span>
-  )
-}
+import NavigationButton from './Basic/NavigationButton'
 
 class NavigationBar extends Component {
   constructor(props) {
@@ -77,43 +63,6 @@ class NavigationBar extends Component {
               </div>
             </li>
           </ul>
-          {/* <ul>
-            <li>
-              <Link to='profile'>
-                <div>
-                  <img src={require('../assets/images/user.png')} alt="User profile"/>
-                </div>
-              </Link>
-            </li>
-            <li>
-              <Link to='notification'>
-                <div>
-                  <img src={require('../assets/images/events.png')} alt="Notification"/>
-                </div>
-              </Link>
-            </li>
-            <li>
-              <Link to='requests'>
-                <div>
-                  <img src={require('../assets/images/paper-plane.png')} alt="Request"/>
-                </div>
-              </Link>
-            </li>
-            <li>
-              <Link to='/newevent'>
-                <div>
-                  <img src={require('../assets/images/plus.png')} alt="Create a new event"/>
-                </div>
-              </Link>
-            </li>
-            <li>
-                <div className="logout">
-                  <button onClick = {handleLogout}>
-                    <img src={require('../assets/images/exit.png')} alt="Logout"/>
-                  </button>
-                </div>
-            </li>
-          </ul> */}
         </div>
       )
     }
