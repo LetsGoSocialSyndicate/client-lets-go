@@ -9,13 +9,13 @@ import { createDropDownFieldComponent,
 } from '../../utilities/guiUtils'
 import TextComponent from '../Basic/TextComponent'
 
-export const TITLE_FIELD = 'title'
-export const LOCATION_FIELD = 'location'
-export const CATEGORY_FIELD = 'category'
-export const DESCRIPTION_FIELD = 'description'
-export const START_TIME_FIELD = 'startTime'
-export const END_TIME_FIELD = 'endTime'
-export const ICON_URL_FIELD = 'iconUrl'
+const TITLE_FIELD = 'title'
+const LOCATION_FIELD = 'location'
+const CATEGORY_FIELD = 'category'
+const DESCRIPTION_FIELD = 'description'
+const START_TIME_FIELD = 'startTime'
+const END_TIME_FIELD = 'endTime'
+const ICON_URL_FIELD = 'iconUrl'
 
 const CategoryOptionsField =
   createDropDownFieldComponent('Category',

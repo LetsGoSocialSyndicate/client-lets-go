@@ -4,9 +4,9 @@
 import React from 'react'
 import { createInputFieldComponent } from '../../utilities/guiUtils'
 
-const TextInputField = createInputFieldComponent('text')
+const TextInputField = createInputFieldComponent('email')
 
-const TextComponent = ({ labelTitle, fieldName, placeholder, required}) => {
+const EmailComponent = ({ labelTitle, fieldName, placeholder, required}) => {
   return (
     <div className="row form-group">
       <label className="col-form-label">{labelTitle}</label>
@@ -18,4 +18,4 @@ const TextComponent = ({ labelTitle, fieldName, placeholder, required}) => {
   )
 }
 
-export default TextComponent
+export default EmailComponent
