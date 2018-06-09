@@ -13,6 +13,7 @@ import '../assets/styles/datePicker.css'
 const createInputFieldComponent = (type) => {
   return class extends Component {
     render() {
+      console.log('this.props', this.props)
       return (<Field component="input" type={type} {...this.props}/>)
     }
   }
