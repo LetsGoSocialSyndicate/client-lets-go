@@ -10,19 +10,19 @@ import 'react-datepicker/dist/react-datepicker.css'
 import { DATE_FORMAT } from '../../constants'
 import { createInputFieldComponent, createDropDownFieldComponent } from '../../utilities/guiUtils'
 import {connect} from 'react-redux'
+import EmailComponent from '../Basic/EmailComponent'
+import PasswordComponent from '../Basic/PasswordComponent'
+import TextComponent from '../Basic/TextComponent'
 
-export const FIRST_NAME_FIELD = "firstName"
-export const MIDDLE_NAME_FIELD = "middleName"
-export const LAST_NAME_FIELD = "lastName"
-export const GENDER_FIELD = "gender"
-export const EMAIL_FIELD = "email"
+const FIRST_NAME_FIELD = "firstName"
+const MIDDLE_NAME_FIELD = "middleName"
+const LAST_NAME_FIELD = "lastName"
+const GENDER_FIELD = "gender"
+const EMAIL_FIELD = "email"
+const BIRTHDAY_FIELD = "birthday"
 export const PASSWORD_FIELD = "password"
 export const PASSWORD2_FIELD = "confirmPassword"
-export const BIRTHDAY_FIELD = "birthday"
 
-const TextInputField = createInputFieldComponent("text")
-const EmailInputField = createInputFieldComponent("email")
-const PasswordInputField = createInputFieldComponent("password")
 const GenderOptionsField =
   createDropDownFieldComponent("Gender",
    ["Male", "Female"])
@@ -51,61 +51,37 @@ const GenderOptionsField =
  * @returns generated form.
  */
 const SignupForm = ({ auth, handleSubmit }) => {
-  console.log("SignupForm:auth:", auth)
   return (
-      <form className="signup-form container"
-            onSubmit={ handleSubmit }>
-        <div className="row form-group">
-          <label htmlFor="firstName">First Name:</label>
-          <TextInputField name={ FIRST_NAME_FIELD }
-            className="form-control"
-            placeholder="First Name"
-            required />
-        </div>
-        <div className="row form-group">
-          <label className="col-form-label">Last Name:</label>
-          <TextInputField name={ LAST_NAME_FIELD }
-            className="form-control"
-            placeholder="Last Name"
-            required />
-        </div>
-         <div className="row form-group">
-          <label className="col-form-label">Birthday:</label>
-          <Field name={ BIRTHDAY_FIELD }
-            component={renderDatePicker} />
-        </div>
-        <div className="row form-group">
-          <label className="col-form-label">Gender:</label>
-          <GenderOptionsField name={ GENDER_FIELD }
-            className="form-control"
-            required />
-        </div>
-        <div className="row form-group">
-          <label className="col-form-label">Email:</label>
-          <EmailInputField name={ EMAIL_FIELD }
-            className="form-control"
-            placeholder="Email"
-            required />
-        </div>
-        <div className="row form-group">
-          <label className="col-form-label">Password:</label>
-          <PasswordInputField name={ PASSWORD_FIELD }
-            className="form-control"
-            placeholder="Password"
-            required />
-        </div>
-        <div className="row form-group">
-          <label className="col-form-label">Confirm Password:</label>
-          <PasswordInputField name={ PASSWORD2_FIELD }
-            className="form-control"
-            placeholder="Password"
-            required />
-        </div>
-        <p className="error" id="signup-error">{auth.error}</p>
-        <div className="row form-group">
-          <button type="submit" className="row btn btn-md submit">Submit</button>
-        </div>
-      </form>
+    <form className="signup-form container"
+          onSubmit={ handleSubmit }>
+      <TextComponent labelTitle="First Name:" fieldName={FIRST_NAME_FIELD}
+        placeholder="First Name" required={true}/>
+      <TextComponent labelTitle="Last Name:" fieldName={LAST_NAME_FIELD}
+        placeholder="Last Name" required={true}/>
+      <div className="row form-group">
+        <label className="col-form-label">Birthday:</label>
+        <Field name={ BIRTHDAY_FIELD }
+          component={renderDatePicker} />
+      </div>
+      <div className="row form-group">
+        <label className="col-form-label">Gender:</label>
+        <GenderOptionsField name={ GENDER_FIELD }
+          className="form-control"
+          required />
+      </div>
+
+      <EmailComponent labelTitle="Email:" fieldName={EMAIL_FIELD}
+        placeholder="Email" required={true}/>
+      <PasswordComponent labelTitle="Password:" fieldName={PASSWORD_FIELD}
+        placeholder="Password" required={true}/>
+      <PasswordComponent labelTitle="Confirm Password:" fieldName={PASSWORD2_FIELD}
+        placeholder="Password" required={true}/>
+
+      <p className="error" id="signup-error">{auth.error}</p>
+      <div className="row form-group">
+        <button type="submit" className="row btn btn-md submit">Submit</button>
+      </div>
+    </form>
   )
 }
 
