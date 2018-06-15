@@ -14,7 +14,7 @@ import SignupPage from './components/Signup/SignupPage'
 import SignupVerified from './components/Signup/SignupVerified'
 import EventFeeds from './components/EventFeeds'
 import NewEventPage from './components/Event/NewEventPage'
-import CheckEmail from './components/Signup/CheckEmail'
+import VerifyCodePage from './components/Signup/VerifyCodePage'
 import SignupError from './components/Signup/SignupError'
 import UserProfile from './components/UserProfile/UserProfile'
 import RequestPage from './components/Requests/RequestPage'
@@ -23,7 +23,6 @@ import RequestPageVerified from './components/Requests/RequestPageVerified'
 class App extends Component {
   render() {
     const isUserLoggedIn = this.props.isUserLoggedIn
-    const email = this.props.email
     const error = this.props.error
 
     console.log("App isUserLoggedIn",isUserLoggedIn)
@@ -34,7 +33,7 @@ class App extends Component {
     let otherUserProfileLandingPage = (props) => (<Redirect to="/login"/>)
     let loginLandingPage = () => (<LoginPage/>)
     let signupLandingPage = () => (<SignupPage/>)
-    let signupSuccessLandingPage = () => (<CheckEmail email={email}/>)
+    let verifyCodeLandingPage = () => (<VerifyCodePage/>)
     let signupFailureLandingPage = () => (<SignupError error={error}/>)
     let newEventLandingPage = () => (<Redirect to="/login"/>)
     let requestsLandingPage = () => (<Redirect to="/login"/>)
@@ -45,6 +44,7 @@ class App extends Component {
       otherUserProfileLandingPage = (props) => (<UserProfile forOtherUser={true} {...props}/>)
       loginLandingPage = () => (<Redirect to="/"/>)
       signupLandingPage = () => (<Redirect to="/"/>)
+      verifyCodeLandingPage = () => (<Redirect to="/"/>)
       newEventLandingPage = () => (<NewEventPage error={error}/>)
       requestsLandingPage = () => (<RequestPage error={error}/>)
     }
@@ -58,7 +58,7 @@ class App extends Component {
           <Route path="/profile/:id" render={ props => otherUserProfileLandingPage(props) } />
           <Route exact path="/login" render={ loginLandingPage } />
           <Route exact path="/signup" render={ signupLandingPage } />
-          <Route exact path="/signup/success" render={ signupSuccessLandingPage } />
+          <Route exact path="/signup/verify_code" render={ verifyCodeLandingPage } />
           <Route exact path="/signup/failure" render={ signupFailureLandingPage } />
           <Route exact path="/newevent" render={ newEventLandingPage } />
           <Route exact path="/requests" render={ requestsLandingPage } />

@@ -23,6 +23,8 @@ const BIRTHDAY_FIELD = "birthday"
 export const PASSWORD_FIELD = "password"
 export const PASSWORD2_FIELD = "confirmPassword"
 
+//Why we don't use also createInputFieldComponent ???
+
 const GenderOptionsField =
   createDropDownFieldComponent("Gender",
    ["Male", "Female"])
