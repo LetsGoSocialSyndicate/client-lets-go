@@ -76,9 +76,9 @@ const SignupForm = ({ auth, handleSubmit }) => {
       <EmailComponent labelTitle="Email:" fieldName={EMAIL_FIELD}
         placeholder="Email" required={true}/>
       <PasswordComponent labelTitle="Password:" fieldName={PASSWORD_FIELD}
-        placeholder="Password" required={true}/>
+        placeholder="Password" required={true} usePattern={true}/>
       <PasswordComponent labelTitle="Confirm Password:" fieldName={PASSWORD2_FIELD}
-        placeholder="Password" required={true}/>
+        placeholder="Password" required={true} usePattern={true}/>
 
       <p className="error" id="signup-error">{auth.error}</p>
       <div className="row form-group">

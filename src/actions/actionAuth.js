@@ -24,7 +24,7 @@ const loginSubmit = (fields, history) => {
         isOtherUser: false
       })
       dispatch({type: LOGIN_SUCCESS, token: responseJSON.token })
-      history.push("/")
+      //history.push("/")
     }
     else {
       dispatch({type: LOGIN_FAILED, error: responseJSON.message})

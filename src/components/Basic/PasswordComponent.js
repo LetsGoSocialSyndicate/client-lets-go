@@ -6,7 +6,7 @@ import { createInputFieldComponent } from '../../utilities/guiUtils'
 
 const TextInputField = createInputFieldComponent('password')
 
-const PasswordComponent = ({ labelTitle, fieldName, placeholder, required}) => {
+const PasswordComponent = ({ labelTitle, fieldName, placeholder, required, usePattern}) => {
   return (
     <div className="row form-group">
       <label className="col-form-label">{labelTitle}</label>
@@ -14,7 +14,7 @@ const PasswordComponent = ({ labelTitle, fieldName, placeholder, required}) => {
         className="form-control"
         placeholder={placeholder}
         required={required}
-        pattern={process.env.REACT_APP_PASSWORD_RULE}/>
+        pattern={usePattern ? process.env.REACT_APP_PASSWORD_RULE : null}/>
     </div>
   )
 }
