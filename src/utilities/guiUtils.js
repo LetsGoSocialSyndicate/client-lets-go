@@ -70,6 +70,9 @@ const renderTimePicker = ({ input, placeholder, defaultValue, meta: {touched, er
     </div>
 )}
 
-export { createInputFieldComponent, createDropDownFieldComponent,
-  renderDatePicker, renderTimePicker
+export {
+  createInputFieldComponent,
+  createDropDownFieldComponent,
+  renderDatePicker,
+  renderTimePicker
 }

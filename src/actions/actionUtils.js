@@ -7,11 +7,13 @@ const getRequestOptions = (method, token, body = null) => {
     headers: {
       'Content-Type': 'application/json',
       'Accept': 'application/json',
-      'Authorization': `Bearer ${token}`
     }
   }
   if (body) {
     opts.body = JSON.stringify(body)
+  }
+  if (token) {
+    opts.headers.Authorization = `Bearer ${token}`
   }
   return opts
 }
