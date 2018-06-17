@@ -13,7 +13,8 @@ const PasswordComponent = ({ labelTitle, fieldName, placeholder, required}) => {
       <TextInputField name={fieldName}
         className="form-control"
         placeholder={placeholder}
-        required={required} />
+        required={required}
+        pattern={process.env.REACT_APP_PASSWORD_RULE}/>
     </div>
   )
 }
