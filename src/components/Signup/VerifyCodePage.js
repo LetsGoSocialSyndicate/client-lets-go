@@ -16,7 +16,7 @@ const VerifyCodePage = ({auth, verifyCode}) => {
         Please check<br/> {auth.email}<br/>
         for a verification code:
       </p>
-      <VerifyCodeForm error={auth.error} onSubmit={action}/>
+      <VerifyCodeForm errorMsg={auth.error} onSubmit={action}/>
     </div>)
     : (<div className="page">
       <p>Something went wrong - email is undefined.</p>

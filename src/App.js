@@ -10,6 +10,8 @@ import 'font-awesome/css/font-awesome.css'
 import './assets/styles/App.css'
 import NavigationBar from './components/NavigationBar'
 import LoginPage from './components/Login/LoginPage'
+import ForgotPasswordPage from './components/Login/ForgotPasswordPage'
+import NewPasswordPage from './components/Login/NewPasswordPage'
 import SignupPage from './components/Signup/SignupPage'
 import SignupVerified from './components/Signup/SignupVerified'
 import EventFeeds from './components/EventFeeds'
@@ -32,6 +34,8 @@ class App extends Component {
     let userProfileLandingPage = () => (<Redirect to="/login"/>)
     let otherUserProfileLandingPage = (props) => (<Redirect to="/login"/>)
     let loginLandingPage = () => (<LoginPage/>)
+    let forgotPasswordLandingPage = () => (<ForgotPasswordPage/>)
+    let newPasswordLandingPage = () => (<NewPasswordPage/>)
     let signupLandingPage = () => (<SignupPage/>)
     let verifyCodeLandingPage = () => (<VerifyCodePage/>)
     let signupFailureLandingPage = () => (<SignupError error={error}/>)
@@ -43,6 +47,8 @@ class App extends Component {
       userProfileLandingPage = () => (<UserProfile forOtherUser={false}/>)
       otherUserProfileLandingPage = (props) => (<UserProfile forOtherUser={true} {...props}/>)
       loginLandingPage = () => (<Redirect to="/"/>)
+      forgotPasswordLandingPage = () => (<Redirect to="/"/>)
+      newPasswordLandingPage = () => (<Redirect to="/"/>)
       signupLandingPage = () => (<Redirect to="/"/>)
       verifyCodeLandingPage = () => (<Redirect to="/"/>)
       newEventLandingPage = () => (<NewEventPage error={error}/>)
@@ -57,6 +63,8 @@ class App extends Component {
           <Route exact path="/profile" render={ userProfileLandingPage } />
           <Route path="/profile/:id" render={ props => otherUserProfileLandingPage(props) } />
           <Route exact path="/login" render={ loginLandingPage } />
+          <Route exact path="/login/forgot_password" render={ forgotPasswordLandingPage } />
+          <Route exact path="/login/new_password" render={ newPasswordLandingPage } />
           <Route exact path="/signup" render={ signupLandingPage } />
           <Route exact path="/signup/verify_code" render={ verifyCodeLandingPage } />
           <Route exact path="/signup/failure" render={ signupFailureLandingPage } />

@@ -1,29 +1,33 @@
-/*
- * Copyright 2018, Socializing Syndicate Corp.
- */
+/* Copyright 2018, Socializing Syndicate Corp. */
 import React from 'react'
 import {connect} from 'react-redux'
 import {Link, withRouter} from "react-router-dom"
 import {bindActionCreators} from 'redux'
 import '../../assets/styles/Login.css'
 
-import ForgotPasswordForm from './ForgotPasswordForm'
+import ForgotPasswordForm, {EMAIL_FIELD} from './ForgotPasswordForm'
 
-import {loginSubmit} from '../../actions/actionAuth'
+import {sendCodeForPassword} from '../../actions/actionAuth'
 
-const onSubmit = (action, history, fields) => {
-  console.log("ForgotPasswordPage ON SUBMIT:", fields)
-  action(fields, history)
+const onSubmit = (action, history, email) => {
+  console.log("ForgotPasswordPage ON SUBMIT:", email)
+  action(email, history)
 }
-
-const ForgotPasswordPage = ({auth, loginSubmit, history}) => {
+const checkForError = (error) => {
+  if (error) {
+    return (<p>
+      This email is unregisted.
+    </p>)
+  }
+}
+const ForgotPasswordPage = ({auth, sendCodeForPassword, history}) => {
   console.log("ForgotPasswordPage render")
-  const action = (fields) => onSubmit(loginSubmit, history, fields)
+  const action = (fields) => onSubmit(sendCodeForPassword, history, fields[EMAIL_FIELD])
   return (<div className="page">
-    <ForgotPasswordForm onSubmit={ action }/>
-    <p className="error">{auth.error}</p>
+    <ForgotPasswordForm errorMsg={auth.error} onSubmit={action}/>
     <Link to='/signup'>Create account</Link>
-    <Link to='/forgot-password'>Forgot password?</Link>
+    <Link to='/login'>Login</Link>
+
   </div>)
 }
 
@@ -32,7 +36,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({
-  loginSubmit
+  sendCodeForPassword
 }, dispatch)
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ForgotPasswordPage))

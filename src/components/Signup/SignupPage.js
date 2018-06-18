@@ -59,7 +59,7 @@ const SignupPage = ({signupSubmit, history}) => {
   //   fields coming from actual "form submit" invocation context
   const action = (fields) => onSubmit(signupSubmit, history, fields)
   return (<div className="page">
-    <SignupForm onSubmit={ action }/>    
+    <SignupForm onSubmit={ action }/>
   </div>)
 }
 

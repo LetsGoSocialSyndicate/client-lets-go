@@ -2,7 +2,8 @@
  * Copyright 2018, Socializing Syndicate Corp.
  */
 
-.login-form {
+.login-form, .forgot-password-form, .new-password, .unregistred-email {
+	margin-top: 12rem;
 	color: #2965a9;
 	font-size:14px;
 	font-weight: bold;
@@ -11,7 +12,19 @@
 	text-transform: uppercase;
 	letter-spacing: .07em;
 	justify-content: center;
-  margin-top: 12rem;
+}
+.user-email {
+	font-weight: bolder;
+}
+.new-password {
+	margin-top: 5rem;
+}
+.new-password-form {
+	margin-top: 3rem;
+}
+
+.email-undefined {
+	color: tomato;
 }
 
 .col-form-label {

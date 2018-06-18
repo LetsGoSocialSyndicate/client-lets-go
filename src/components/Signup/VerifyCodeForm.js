@@ -9,7 +9,7 @@ import { Field, reduxForm } from 'redux-form'
 
 export const VERIFICATION_CODE = "VERIFICATION_CODE"
 
-const VerifyCodeForm = ({error, handleSubmit}) => {
+const VerifyCodeForm = ({errorMsg, handleSubmit}) => {
   return (
       <form className="signup-form container"
             onSubmit={ handleSubmit }>
@@ -19,7 +19,7 @@ const VerifyCodeForm = ({error, handleSubmit}) => {
         fieldName={VERIFICATION_CODE}
         required={true}
       />
-      <p className="error" id="verify-code-error">{error}</p>
+      <p className="error" id="verify-code-error">{errorMsg}</p>
       <div className="row form-group">
         <button type="submit" className="row btn btn-md submit">Submit</button>
       </div>
