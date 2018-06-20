@@ -14,6 +14,7 @@ const PasswordComponent = ({ labelTitle, fieldName, placeholder, required, usePa
         className="form-control"
         placeholder={placeholder}
         required={required}
+        title="Password must contain at least one upper case letter and at least one number, and must be at least 8 characters or more."
         pattern={usePattern ? process.env.REACT_APP_PASSWORD_RULE : null}/>
     </div>
   )
